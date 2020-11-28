@@ -1,0 +1,32 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+html,
+body {
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+/* Write your own custom component styles here */
+.btn-blue {
+  @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
+}
+
+.this-thing::before {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: 100%;
+  width: 25px;
+  transform: rotate(0deg);
+}
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
