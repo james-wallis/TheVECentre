@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroImage from '../components/HeroImage'
 import Layout from '../components/Layout'
-import { MainHeading, TextBlock, Placeholder, Row, PageBreak, SubHeading } from '../components/PageElements'
+import { MainHeading, TextBlock, Row, PageBreak, SubHeading } from '../components/PageElements'
 
 const keywordList: string[] = [
     'Authentic outdoor Christmas Markets',

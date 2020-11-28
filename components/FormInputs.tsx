@@ -1,5 +1,4 @@
-import { ReactNode } from "react"
-import { Placeholder } from "./PageElements"
+import { ReactNode } from 'react'
 
 interface IInputProps {
     label: string,
