@@ -2,8 +2,8 @@ import Navigation from './Navigation'
 import SocialIcons from './SocialIcons'
 
 const Header = () => (
-    <header className="bg-black fixed w-screen z-50 xl:h-56 h-52">
-        <div className="flex items-center justify-between py-8 bg-white this-thing relative xl:h-24 h-20">
+    <header className="bg-dark-blue fixed w-screen z-50 xl:h-56 h-52">
+        <div className="header-slant flex items-center justify-between py-8 bg-white relative xl:h-24 h-20">
             <h1 className="xl:text-5xl lg:text-3xl ml-16 font-light">The Virtual Exhibition Centre</h1>
             <Navigation />
         </div>
