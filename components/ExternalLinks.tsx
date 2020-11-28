@@ -12,7 +12,7 @@ export const LinkToExternalSite = ({ href, children }: IProps) => (
 )
 
 export const TelephoneLink = () => (
-    <a href="tel:+447832359209">Call +44(0)7832359209</a>
+    <a href="tel:+447832359209">+44(0)7832 359209</a>
 )
 
 export const EmailLink = () => (

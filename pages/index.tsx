@@ -14,14 +14,14 @@ const IndexPage = () => (
             30 Nov - 20 Dec 2020
         </Date>
         <EnterTourIcon dark />
-        <TextBlock title={<Italic>Christmas Market</Italic>}>
+        <TextBlock header={{ children: <Italic>Christmas Market</Italic> }}>
             <p>Immerse yourself in Christmas by walking around our interactive snowy log cabins.</p>
             <p>Each cabin will host a variety of art and crafts from the finest artisans.</p>
             <p>Find bespoke and unusual gifts for your loved ones, and support small businesses this Christmas.</p>
             <p>So grab a hot chocolate or mulled wine and explore the magic of our virtual wonderland.</p>
         </TextBlock>
         <Placeholder>VIDEO HERE</Placeholder>
-        <TextBlock title="Interactive Crafts and Baking">
+        <TextBlock header={{ children: 'Interactive Crafts and Baking' }}>
             <p>Watch instruction videos, download PDF instructions and templates to bring the festivities into your home.</p>
             <p>Fun for every age!</p>
         </TextBlock>
@@ -32,7 +32,7 @@ const IndexPage = () => (
             </EnterTourIcon>
             <Placeholder>VIDEO HERE</Placeholder>
         </Row>
-        <TextBlock title="Tour Guide">
+        <TextBlock header={{ children: "Tour Guide" }}>
             <p>Watch instruction videos, download PDF instructions and templates to bring the festivities into your home.</p>
             <p>Fun for every age!</p>
         </TextBlock>

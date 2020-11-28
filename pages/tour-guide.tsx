@@ -18,18 +18,18 @@ const TourGuidePage = () => (
         </TextBlock>
         <Row>
             <div className="mr-6 w-1/2">
-                <TextBlock title="Entering a tour">
+                <TextBlock header={{ children: 'Entering a tour' }}>
                     <p>Just click on one of the icons to enter a tour!</p>
                 </TextBlock>
                 <img src="/images/Icon-Entertour.jpg" alt="enter tour icon" />
-                <TextBlock title="Floorplan">
+                <TextBlock header={{ children: 'Floorplan' }}>
                     <p>Click on the floor plan icon</p>
                     <p>View the show layout and choose where to go</p>
                 </TextBlock>
                 <img src="/images/Icon-Floorplan.jpg" alt="floorplan icon" />
             </div>
             <div className="ml-6 w-1/2">
-                <TextBlock title="Navigation">
+                <TextBlock header={{ children: 'Navigation' }}>
                     <p>Using the VECentre Remote</p>
                     <p>Moving around</p>
                 </TextBlock>
@@ -38,7 +38,7 @@ const TourGuidePage = () => (
         </Row>
         <Row>
             <div className="mr-6 w-1/2">
-                <TextBlock title="Viewing">
+                <TextBlock header={{ children: 'Viewing' }}>
                     <p>How to use gestures, press and drag</p>
                     <p>Or use the arrow keys on your keyboard</p>
                 </TextBlock>
@@ -48,7 +48,7 @@ const TourGuidePage = () => (
                 <img src="/images/Icon-Entertour.jpg" alt="enter tour icon" />
             </div>
             <div className="mr-6 w-1/2">
-                <TextBlock title="Hotspots">
+                <TextBlock header={{ children: 'Hotspots' }}>
                     <p>'Hotspots' allow you to interact with the tour.</p>
                     <p>You can watch videos, download PDFs, enlarge images, and even purchase items.</p>
                     <p>These hotsports appear whenever you hover over them.</p>
