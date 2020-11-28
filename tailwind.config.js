@@ -7,6 +7,9 @@ module.exports = {
           'accent-1': '#333',
           'dark-blue': '#0F1217',
         },
+        maxHeight: {
+          'tgi': '70vh',
+        },
       },
     },
     variants: {

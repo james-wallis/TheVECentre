@@ -7,11 +7,11 @@ interface IProps {
 
 export const EnterTourIcon = ({ dark = false, children }: IProps) => (
     <div className="flex flex-col w-72 items-center m-4">
-        <img className="pb-4 w-3/5" src="/images/Icon-Entertour-1@2x.jpg" alt="enter tour icon" />
+        <img className="pb-4 w-3/5" src="/images/Icon-Entertour-1@2x.png" alt="enter tour icon" />
         {
             children
                 ? <p className="text-center text-lg">{children}</p>
-                : <img className="w-4/5" src={`/images/takeme-${dark ? 'dark' : 'light'}.jpg`} alt="take me there icon" />
+                : <img className="w-4/5" src={`/images/takeme-${dark ? 'dark' : 'light'}.png`} alt="take me there icon" />
         }
     </div>
 )
