@@ -1,11 +1,11 @@
 import React from 'react'
 import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
 import HeroImage from '../components/HeroImage'
-import { EnterTourIcon, RemoteIcon } from '../components/Icons'
+import { EnterTourIcon } from '../components/Icons'
 import Layout from '../components/Layout'
-import { Italic, MainHeading, TextBlock, Date, Row, Placeholder } from '../components/PageElements'
+import { MainHeading, TextBlock, Placeholder } from '../components/PageElements'
 
-const TourGuidePage = () => (
+const ExhibitorPage = () => (
     <Layout>
         <HeroImage src='Mainpic-exhibitors@2x.jpg' icon />
         <MainHeading>
@@ -28,4 +28,4 @@ const TourGuidePage = () => (
   </Layout>
 )
 
-export default TourGuidePage
+export default ExhibitorPage

@@ -1,8 +1,6 @@
 import React from 'react'
-import HeroImage from '../components/HeroImage'
-import { EnterTourIcon, RemoteIcon } from '../components/Icons'
 import Layout from '../components/Layout'
-import { Italic, MainHeading, TextBlock, Date, Row, Placeholder } from '../components/PageElements'
+import { MainHeading, TextBlock, Row } from '../components/PageElements'
 
 const TourGuidePage = () => (
     <Layout>
