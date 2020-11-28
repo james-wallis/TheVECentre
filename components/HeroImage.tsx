@@ -7,7 +7,7 @@ interface IProps {
     placement?: string
 }
 
-const HeroImage = ({ src, icon, placement = 'center'}: IProps) => (
+const HeroImage = ({ src, icon }: IProps) => (
     <div className="mb-4 relative">
         {icon && (
             <div className="absolute">
