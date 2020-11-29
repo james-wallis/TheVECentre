@@ -10,6 +10,9 @@ module.exports = {
         maxHeight: {
           'tgi': '70vh',
         },
+        height: {
+          'hero-mobile': '80vh',
+        },
       },
     },
     variants: {

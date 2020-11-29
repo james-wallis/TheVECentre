@@ -18,7 +18,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         </Head>
         <ScrollToViewTag />
         <Header />
-        <main className="xl:pt-56 pt-52 w-screen flex flex-col justify-center items-center">
+        <main className="xl:pt-56 pt-44 lg:pt-52 w-screen flex flex-col justify-center items-center">
             {children}
         </main>
         <Footer />

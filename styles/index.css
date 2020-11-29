@@ -25,7 +25,7 @@ body {
 }
 
 .header-slant::before {
-  @apply absolute bg-dark-blue;
+  @apply absolute bg-dark-blue z-20;
 }
 
 /* Start purging... */

@@ -2,7 +2,7 @@ import React from "react";
 import { SubmitButton, TextArea, TextInput } from "./FormInputs";
 
 const ContactForm = () => (
-    <form className="w-full max-w-lg mt-12">
+    <form className="w-11/12 lg:w-full max-w-lg mt-12">
         <div className="flex flex-wrap -mx-3 mb-6">
             <TextInput id="name" type="text" label="Name" />
         </div>

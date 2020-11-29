@@ -10,11 +10,11 @@ interface IProps {
 const HeroImage = ({ src, icon }: IProps) => (
     <div className="mb-4 relative">
         {icon && (
-            <div className="absolute">
+            <div className="absolute h-full w-full flex justify-center items-center">
                 <EnterTourIcon />
             </div>
         )}
-        <img src={`/images/${src}`} alt='hero image' />
+        <img className="h-hero-mobile object-cover md:h-auto" src={`/images/${src}`} alt='hero image' />
     </div>
 )
 

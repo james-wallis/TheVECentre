@@ -28,7 +28,7 @@ export const SubHeading = ({ children, thin, uppercase }: IHeaderProps) => (
 )
 
 export const TextBlock = ({ newline, children, header }: ITextBlockProps) => (
-    <div className={`xl:text-2xl text-xl text-center my-3 text-gray-900 font-light w-3/5 ${newline && 'mb-10'}`}>
+    <div className={`xl:text-2xl text-xl text-center my-3 text-gray-900 font-light w-4/5 lg:w-3/5 ${newline && 'mb-10'}`}>
         {header && <SubHeading {...header}>{header.children}</SubHeading>}
         {children}
     </div>
@@ -45,7 +45,7 @@ export const Italic = ({ children }: IProps) => (
 )
 
 export const Row = ({ children, className }: IProps) => (
-    <div className={`flex flex-row my-4 ${className}`}>
+    <div className={`flex flex-col lg:flex-row my-4 ${className || ''}`}>
         {children}
     </div>
 )

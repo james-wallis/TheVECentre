@@ -17,7 +17,7 @@ const TourGuidePage = () => (
             <p>Click on 'hotspots' to activate the interaction.</p>
         </TextBlock>
         <Row>
-            <div className="mr-6 w-1/2 flex flex-col items-center">
+            <div className="lg:mr-6 w-full lg:w-1/2 flex flex-col items-center">
                 <TextBlock header={{ children: 'Entering a tour' }}>
                     <p>Just click on one of the icons to enter a tour!</p>
                 </TextBlock>
@@ -28,7 +28,7 @@ const TourGuidePage = () => (
                 </TextBlock>
                 <img  className="xl:px-48 px-32 max-h-tgi" src="/images/Icon-Floorplan@2x.png" alt="floorplan icon" />
             </div>
-            <div className="ml-6 w-1/2 flex flex-col items-center">
+            <div className="lg:ml-6 w-full lg:w-1/2 flex flex-col items-center">
                 <TextBlock header={{ children: 'Navigation' }}>
                     <p>Using the VECentre Remote</p>
                     <p>Moving around</p>
@@ -37,7 +37,7 @@ const TourGuidePage = () => (
             </div>
         </Row>
         <Row>
-            <div className="mr-6 w-1/2 flex flex-col items-center">
+            <div className="lg:mr-6 w-full lg:w-1/2 flex flex-col items-center">
                 <TextBlock header={{ children: 'Viewing' }}>
                     <p>How to use gestures, press and drag</p>
                     <p>Or use the arrow keys on your keyboard</p>
@@ -47,7 +47,7 @@ const TourGuidePage = () => (
                 </TextBlock> */}
                 <img className="px-32 max-h-tgi" src="/images/Icon-Viewing@2x.png" alt="enter tour icon" />
             </div>
-            <div className="ml-6 w-1/2 flex flex-col items-center">
+            <div className="lg:ml-6 w-full lg:w-1/2 flex flex-col items-center">
                 <TextBlock header={{ children: 'Hotspots' }}>
                     <p>'Hotspots' allow you to interact with the tour.</p>
                     <p>You can watch videos, download PDFs, enlarge images, and even purchase items.</p>
