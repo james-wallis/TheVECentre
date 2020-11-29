@@ -7,7 +7,7 @@ import { MainHeading, TextBlock, Placeholder } from '../components/PageElements'
 
 const HirePage = () => (
     <Layout>
-        <HeroImage src='Homepage-MainPic@2x.jpg' icon placement="left"/>
+        <HeroImage src='Mainpic-Venuehire.jpg' icon placement="top-left"/>
         <MainHeading thin>
             Venue Hire The VECentre
         </MainHeading>

@@ -44,7 +44,7 @@ const listElement = (item: string) => (
 
 const AboutPage = () => (
     <Layout>
-        <HeroImage src='Homepage-MainPic@2x.jpg' />
+        <HeroImage src='Mainpic-About.jpg' />
         <MainHeading thin>About TheVECentre</MainHeading>
         <TextBlock>
             <p>The VECentre is a creative concept which has evolved during the COVID-19 outbreak.</p>
