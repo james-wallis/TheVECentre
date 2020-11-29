@@ -17,7 +17,10 @@ module.exports = {
           'tgi': '70vh',
         },
         height: {
-          'hero-mobile': '80vh',
+          'video': '315px',
+        },
+        width: {
+          'video': '560px',
         },
       },
     },

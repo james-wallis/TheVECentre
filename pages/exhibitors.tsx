@@ -3,7 +3,8 @@ import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon } from '../components/Icons'
 import Layout from '../components/Layout'
-import { MainHeading, TextBlock, Placeholder } from '../components/PageElements'
+import { MainHeading, TextBlock } from '../components/PageElements'
+import VideoPlayer from '../components/VideoPlayer'
 
 const ExhibitorPage = () => (
     <Layout>
@@ -22,9 +23,7 @@ const ExhibitorPage = () => (
             <p>Arrange a meeting or enquire about prices:</p>
             <p>Please call Mish on <TelephoneLink /> or email the office <EmailLink /></p>
         </TextBlock>
-        <Placeholder>
-            IMAGE HERE
-        </Placeholder>
+        <VideoPlayer videoId="cqzBbm9Aeho" />
   </Layout>
 )
 

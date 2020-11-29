@@ -5,7 +5,7 @@ import { Row } from './PageElements'
 
 const links: ILink[] = [
     { text: 'FAQ', href: '' },
-    { text: 'Press Office', href: '' },
+    { text: 'Press Office', href: '/press-office' },
     { text: 'Privacy Policy', href: '' },
     { text: 'Terms & Conditions', href: '' },
 ]

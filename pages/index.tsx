@@ -3,6 +3,9 @@ import HeroImage from '../components/HeroImage'
 import { EnterTourIcon, RemoteIcon } from '../components/Icons'
 import Layout from '../components/Layout'
 import { Italic, MainHeading, TextBlock, Date, Row, Placeholder } from '../components/PageElements'
+import VideoPlayer from '../components/VideoPlayer'
+
+const christmasVideoId: string = 'IXU6adtXfMQ';
 
 const IndexPage = () => (
     <Layout>
@@ -20,12 +23,12 @@ const IndexPage = () => (
             <p>Find bespoke and unusual gifts for your loved ones, and support small businesses this Christmas.</p>
             <p>So grab a hot chocolate or mulled wine and explore the magic of our virtual wonderland.</p>
         </TextBlock>
-        <Placeholder>VIDEO HERE</Placeholder>
+        <VideoPlayer videoId={christmasVideoId} />
         <TextBlock header={{ children: 'Interactive Crafts and Baking' }}>
             <p>Watch instruction videos, download PDF instructions and templates to bring the festivities into your home.</p>
             <p>Fun for every age!</p>
         </TextBlock>
-        <Row>
+        <Row className="items-center">
             <Placeholder>VIDEO HERE</Placeholder>
             <EnterTourIcon>
                 Teleport straight to the fun stuff!

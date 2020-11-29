@@ -3,7 +3,8 @@ import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon } from '../components/Icons'
 import Layout from '../components/Layout'
-import { MainHeading, TextBlock, Placeholder } from '../components/PageElements'
+import { MainHeading, TextBlock } from '../components/PageElements'
+import VideoPlayer from '../components/VideoPlayer'
 
 const HirePage = () => (
     <Layout>
@@ -12,9 +13,7 @@ const HirePage = () => (
             Venue Hire The VECentre
         </MainHeading>
         <EnterTourIcon dark />
-        <Placeholder>VIDEO HERE</Placeholder>
-
-
+        <VideoPlayer videoId="cqzBbm9Aeho" />
         <TextBlock>
             <p>We would love to discuss your event and tell you about the VECentre.</p>
         </TextBlock>

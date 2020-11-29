@@ -22,7 +22,7 @@ const ContactPage = () => (
                     <TelephoneLink />,
                     <EmailLink />,
                 ].map(el => (
-                    <p className="text-5xl text-bold my-2">{el}</p>
+                    <p className="text-3xl lg:text-5xl text-bold my-2">{el}</p>
                 ))
             }
         </TextBlock>

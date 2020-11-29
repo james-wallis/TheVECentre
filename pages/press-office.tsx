@@ -3,7 +3,8 @@ import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon } from '../components/Icons'
 import Layout from '../components/Layout'
-import { MainHeading, TextBlock, Placeholder, Row } from '../components/PageElements'
+import { MainHeading, TextBlock, Row } from '../components/PageElements'
+import VideoPlayer from '../components/VideoPlayer'
 
 const PressOfficePage = () => (
     <Layout>
@@ -28,9 +29,7 @@ const PressOfficePage = () => (
                 ))
             }
         </Row>
-        <Placeholder>
-            VIDEO HERE
-        </Placeholder>
+        <VideoPlayer videoId="bcT5Mtqze38" />
   </Layout>
 )
 
