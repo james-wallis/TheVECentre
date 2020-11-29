@@ -7,7 +7,7 @@ import { MainHeading, TextBlock, Row } from '../components/PageElements'
 import VideoPlayer from '../components/VideoPlayer'
 
 const PressOfficePage = () => (
-    <Layout>
+    <Layout title="Press Office" description="Arrange a press meeting or enquire about The VECentre" canonical="/press-office">
         <HeroImage src='VecPressoffice.jpg' icon placement='mid-left' />
         <MainHeading>
            Press Office

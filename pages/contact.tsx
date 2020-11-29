@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import { MainHeading, TextBlock } from '../components/PageElements'
 
 const ContactPage = () => (
-    <Layout>
+    <Layout title="Contact" description="Contact page for The VECentre. Call, email or use the built-in contact form" canonical="/contact">
         <HeroImage src='Mainpic-exhibitors@2x.jpg' icon />
         <MainHeading thin uppercase>
             <span className="block mt-8 mb-4">There is no address</span>

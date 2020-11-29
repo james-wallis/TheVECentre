@@ -3,16 +3,23 @@ import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
 import ScrollToViewTag from './ScrollToViewTag'
+import { NextSeo } from 'next-seo'
 
 type Props = {
     children?: ReactNode
-    title?: string
+    title: string
+    description: string
+    canonical: string
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title, description, canonical }: Props) => (
     <div className="bg-white">
+        <NextSeo
+            title={title}
+            description={description}
+            canonical={`https://.com${canonical}`}
+        />
         <Head>
-            <title>{title}</title>
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>

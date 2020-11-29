@@ -12,7 +12,7 @@ const TextAndImage = ({ children, header, src, alt }: { children: ReactNode, hea
 )
 
 const TourGuidePage = () => (
-    <Layout>
+    <Layout title="Tour Guide" description="How to navigate The VECentre's online exhibitions" canonical="/tour-guide">
         <MainHeading>
             Tour Guide
         </MainHeading>

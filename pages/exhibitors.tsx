@@ -7,7 +7,7 @@ import { MainHeading, TextBlock } from '../components/PageElements'
 import VideoPlayer from '../components/VideoPlayer'
 
 const ExhibitorPage = () => (
-    <Layout>
+    <Layout title="Exhibitors" description="See what it means to become an exhibitor at The VECentre" canonical="/exhibitors">
         <HeroImage src='Mainpic-exhibitors@2x.jpg' icon />
         <MainHeading>
             Want to join us?

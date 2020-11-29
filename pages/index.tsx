@@ -8,7 +8,7 @@ import VideoPlayer from '../components/VideoPlayer'
 const christmasVideoId: string = 'IXU6adtXfMQ';
 
 const IndexPage = () => (
-    <Layout>
+    <Layout title="Home" description="The VECentre is a creative concept which has evolved during the COVID-19 outbreak." canonical="/">
         <HeroImage src='Homepage-MainPic@2x.jpg' icon placement="top-left"/>
         <MainHeading>
             <Italic>Christmas@</Italic> TheVECentre
