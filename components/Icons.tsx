@@ -6,7 +6,7 @@ interface IProps {
 }
 
 export const EnterTourIcon = ({ dark = false, children }: IProps) => (
-    <div className="flex flex-col w-72 items-center m-4">
+    <div className="flex flex-col w-48 md:w-56 lg:w-64 xl:w-72 items-center m-4">
         <img className="pb-4 w-3/5" src="/images/Icon-Entertour-1@2x.png" alt="enter tour icon" />
         {
             children

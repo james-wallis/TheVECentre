@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock, Row } from '../components/PageElements'
+
+const TextAndImage = ({ children, header, src, alt }: { children: ReactNode, header: string, src: string, alt: string }) => (
+    <>
+        <TextBlock header={{ children: header }}>
+            {children}
+        </TextBlock>
+        <img className="xl:px-48 px-4 md:px-16 lg:px-32 max-h-tgi" src={`/images/${src}`} alt={alt} />
+    </>
+)
 
 const TourGuidePage = () => (
     <Layout>
@@ -18,42 +27,34 @@ const TourGuidePage = () => (
         </TextBlock>
         <Row>
             <div className="lg:mr-6 w-full lg:w-1/2 flex flex-col items-center">
-                <TextBlock header={{ children: 'Entering a tour' }}>
+                <TextAndImage header="Entering a tour" src="Icon-Entertour@2x.png" alt="enter tour icon">
                     <p>Just click on one of the icons to enter a tour!</p>
-                </TextBlock>
-                <img  className="xl:px-48 px-32 max-h-tgi" src="/images/Icon-Entertour@2x.png" alt="enter tour icon" />
-                <TextBlock header={{ children: 'Floorplan' }}>
+                </TextAndImage>
+                <TextAndImage header="Floorplan" src="Icon-Floorplan@2x.png" alt="floorplan icon">
                     <p>Click on the floor plan icon</p>
                     <p>View the show layout and choose where to go</p>
-                </TextBlock>
-                <img  className="xl:px-48 px-32 max-h-tgi" src="/images/Icon-Floorplan@2x.png" alt="floorplan icon" />
+                </TextAndImage>
             </div>
             <div className="lg:ml-6 w-full lg:w-1/2 flex flex-col items-center">
-                <TextBlock header={{ children: 'Navigation' }}>
+                <TextAndImage header="Navigation" src="Icon-Remote-Explained@2x.png" alt="remote icon">
                     <p>Using the VECentre Remote</p>
                     <p>Moving around</p>
-                </TextBlock>
-                <img className="px-32 max-h-tgi" src="/images/Icon-Remote-Explained@2x.png" alt="remote icon" />
+                </TextAndImage>
             </div>
         </Row>
         <Row>
             <div className="lg:mr-6 w-full lg:w-1/2 flex flex-col items-center">
-                <TextBlock header={{ children: 'Viewing' }}>
+                <TextAndImage header="Viewing" src="Icon-Viewing@2x.png" alt="viewing icon">
                     <p>How to use gestures, press and drag</p>
                     <p>Or use the arrow keys on your keyboard</p>
-                </TextBlock>
-                {/* <TextBlock>
-                    <p>Your viewpoint controls</p>
-                </TextBlock> */}
-                <img className="px-32 max-h-tgi" src="/images/Icon-Viewing@2x.png" alt="enter tour icon" />
+                </TextAndImage>
             </div>
             <div className="lg:ml-6 w-full lg:w-1/2 flex flex-col items-center">
-                <TextBlock header={{ children: 'Hotspots' }}>
+                <TextAndImage header="Hotspots" src="Icon-Hotspots@2x.png" alt="hotspots icon">
                     <p>'Hotspots' allow you to interact with the tour.</p>
                     <p>You can watch videos, download PDFs, enlarge images, and even purchase items.</p>
                     <p>These hotsports appear whenever you hover over them.</p>
-                </TextBlock>
-                <img className="px-32 max-h-tgi" src="/images/Icon-Hotspots@2x.png" alt="floorplan icon" />
+                </TextAndImage>
             </div>
         </Row>
   </Layout>

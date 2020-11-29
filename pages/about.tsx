@@ -39,7 +39,7 @@ const humanSkillsList: { mish: string[], jodi: string[] } = {
 };
 
 const listElement = (item: string) => (
-    <li className="my-6">{item}</li>
+    <li className="my-2 lg:my-3 mx-4 lg:mx-0" key={item}>{item}</li>
 );
 
 const AboutPage = () => (
@@ -92,20 +92,20 @@ const AboutPage = () => (
             <p>for real venues, galleries and event organisers a virtual hall or space</p>
         </TextBlock>
         {keywordList.map(text => (
-            <TextBlock>
+            <TextBlock key={text}>
                 <p>{text}</p>
             </TextBlock>
         ))}
         <PageBreak />
         <SubHeading thin>THE HUMANS</SubHeading>
-        <Row className="text-3xl text-gray-500 w-full justify-around">
-            <ul className="text-right w-1/3">
+        <Row className="text-3xl text-gray-500 w-full items-center lg:justify-around">
+            <ul className="text-right flex flex-row lg:flex-col w-4/5 lg:w-1/3 flex-wrap justify-center">
                 {humanSkillsList.mish.map(listElement)}
             </ul>
             <div className="mx-8 ">
-                <img src='' alt='mish and jodi' />
+                <img src='/images/jodi-and-mish.jpg' alt='mish and jodi' />
             </div>
-            <ul className="w-1/3">
+            <ul className="text-left flex flex-row lg:flex-col w-4/5 lg:w-1/3 flex-wrap justify-center">
                 {humanSkillsList.jodi.map(listElement)}
             </ul>
         </Row>

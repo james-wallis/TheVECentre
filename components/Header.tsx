@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <header className="bg-dark-blue fixed w-screen z-40 xl:h-56 h-44 lg:h-52">
             <div className="header-slant flex items-center justify-between py-8 bg-white xl:h-24 h-20">
-                <h1 className="2xl:text-5xl xl:text-4xl md:text-3xl text-2xl ml-10 lg:ml-16 font-light block">
+                <h1 className="2xl:text-5xl xl:text-4xl md:text-3xl text-2xl ml-10 lg:ml-16 font-light block text-header-blue">
                     <span className="inline">The Virtual&nbsp;</span>
                     <span className="inline">Exhibition Centre</span>
                 </h1>

@@ -6,7 +6,7 @@ import { Italic, MainHeading, TextBlock, Date, Row, Placeholder } from '../compo
 
 const IndexPage = () => (
     <Layout>
-        <HeroImage src='Homepage-MainPic@2x.jpg' icon placement="left"/>
+        <HeroImage src='Homepage-MainPic@2x.jpg' icon placement="top-left"/>
         <MainHeading>
             <Italic>Christmas@</Italic> TheVECentre
         </MainHeading>

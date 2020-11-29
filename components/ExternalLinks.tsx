@@ -8,7 +8,7 @@ interface IProps {
 export const LinkToExternalSite = ({ href, children }: IProps) => (
     // nofollow tells SEO crawlers to ignore this link
     // noopener and noreferrer protect users from phising attacks when using _blank
-    <a href={href} rel="noopener noreferrer nofollow" target="_blank">{children}</a>
+    <a className="hover:text-gray-400 transition-all" href={href} rel="noopener noreferrer nofollow" target="_blank">{children}</a>
 )
 
 export const TelephoneLink = () => (
