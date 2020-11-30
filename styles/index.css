@@ -18,7 +18,7 @@ body {
 
 .header-slant::before {
   content: "";
-  height: 150%;
+  height: 100%;
   width: 40px;
   transform: rotate(-20deg);
   left: -25px;

@@ -30,9 +30,9 @@ const Header = () => {
                 <Navigation isOpen={isOpen} closeMenu={() => setOpen(false)} />
                 <Hamburger onClick={() => setOpen(true)}/>
             </div>
-            <div className={`flex justify-between item-center px-4 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
-                <div className="flex h-full">
-                    <img className="max-h-full object-cover" src='/images/Header-logo@2x.jpg' alt='The VECentre Logo' />
+            <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
+                <div className="flex h-full max-h-full">
+                    <img className="h-full md:h-auto max-h-full object-cover" src='/images/Header-logo@2x.jpg' alt='The VECentre Logo' />
                     <img className="max-h-full object-cover hidden lg:block" src='/images/Header-360@2x.jpg' alt='360 logo' />
                 </div>
                 <SocialIcons />
