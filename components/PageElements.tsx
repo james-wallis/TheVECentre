@@ -39,7 +39,7 @@ export const Date = ({ children }: IProps) => (
 )
 
 export const Italic = ({ children }: IProps) => (
-    <span className="italic">
+    <span className="italic text-7xl font-cursive">
         {children}
     </span>
 )

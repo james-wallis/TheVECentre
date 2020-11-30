@@ -43,7 +43,7 @@ const listElement = (item: string) => (
 );
 
 const AboutPage = () => (
-    <Layout title="About" description="About The VECentre" canonical="/about">
+    <Layout title="About" description="About The VECentre">
         <HeroImage src='Mainpic-About.jpg' />
         <MainHeading thin>About TheVECentre</MainHeading>
         <TextBlock>

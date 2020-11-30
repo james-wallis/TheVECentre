@@ -7,7 +7,7 @@ import { MainHeading, TextBlock } from '../components/PageElements'
 import VideoPlayer from '../components/VideoPlayer'
 
 const HirePage = () => (
-    <Layout title="Hire Venue" description="The VECentre is the perfect venue to host your event, during the pandemic and beyond." canonical="/hire">
+    <Layout title="Hire Venue" description="The VECentre is the perfect venue to host your event, during the pandemic and beyond.">
         <HeroImage src='Mainpic-Venuehire.jpg' icon placement="top-left" />
         <MainHeading thin>
             Venue Hire The VECentre

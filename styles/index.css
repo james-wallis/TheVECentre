@@ -6,9 +6,14 @@
 @tailwind components;
 /* Stop purging. */
 
+@font-face {
+  font-family: "SnellRoundhand";
+  src: url("../fonts/SnellRoundhand.ttc");
+}
+
 html,
 body {
-  @apply bg-dark-blue dark:bg-gray-900;
+  @apply bg-dark-blue dark:bg-gray-900 font-default;
 }
 
 /* Write your own custom component styles here */

@@ -10,7 +10,6 @@ type Props = {
     children?: ReactNode
     title: string
     description: string
-    canonical: string
 }
 
 const postVariants = {
@@ -24,13 +23,12 @@ const postVariants = {
     }
   };
 
-const Layout = ({ children, title, description, canonical }: Props) => (
+const Layout = ({ children, title, description }: Props) => (
     <AnimatePresence exitBeforeEnter>
         <motion.div  className="bg-white">
             <NextSeo
                 title={title}
                 description={description}
-                canonical={`https://.com${canonical}`}
             />
             <Head>
                 <meta charSet="utf-8" />

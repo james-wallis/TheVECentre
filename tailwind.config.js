@@ -3,6 +3,10 @@ module.exports = {
     darkMode: 'media', // 'media' or 'class'
     theme: {
       extend: {
+        fontFamily: {
+          'cursive': ['SnellRoundhand', 'cursive'],
+          'default': ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji'],
+        },
         colors: {
           'accent-1': '#333',
           'dark-blue': '#0F1217',

@@ -12,7 +12,7 @@ interface PageProps {
 
 const GalleryPage = ({ videos }: PageProps) => {
     return (
-        <Layout title="Gallery" description="A selection of videos showing what is on offer at The VECentre" canonical="/gallery">
+        <Layout title="Gallery" description="A selection of videos showing what is on offer at The VECentre">
             <Placeholder>VIDEO HERE</Placeholder>
             <Placeholder>VIDEO SELECTION HERE</Placeholder>
             <MainHeading thin>The gallery</MainHeading>

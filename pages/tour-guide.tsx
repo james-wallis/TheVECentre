@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react'
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock, Row } from '../components/PageElements'
 
-const TextAndImage = ({ children, header, src, alt }: { children: ReactNode, header: string, src: string, alt: string }) => (
+const TextAndImage = ({ children, header, src, alt, newline }: { children: ReactNode, header: string, src: string, alt: string, newline?: boolean }) => (
     <>
-        <TextBlock header={{ children: header }}>
+        <TextBlock header={{ children: header, uppercase: true, thin: true }} newline={newline}>
             {children}
         </TextBlock>
         <img className="xl:px-48 px-4 md:px-16 lg:px-32 max-h-tgi" src={`/images/${src}`} alt={alt} />
@@ -12,7 +12,7 @@ const TextAndImage = ({ children, header, src, alt }: { children: ReactNode, hea
 )
 
 const TourGuidePage = () => (
-    <Layout title="Tour Guide" description="How to navigate The VECentre's online exhibitions" canonical="/tour-guide">
+    <Layout title="Tour Guide" description="How to navigate The VECentre's online exhibitions">
         <MainHeading>
             Tour Guide
         </MainHeading>
@@ -37,7 +37,7 @@ const TourGuidePage = () => (
             </div>
             <div className="lg:ml-6 w-full lg:w-1/2 flex flex-col items-center">
                 <TextAndImage header="Navigation" src="Icon-Remote-Explained@2x.png" alt="remote icon">
-                    <p>Using the VECentre Remote</p>
+                    <p className="mb-4">Using the VECentre Remote</p>
                     <p>Moving around</p>
                 </TextAndImage>
             </div>

@@ -3,6 +3,10 @@ export interface ILink {
     href: string
 }
 
+export interface PageProps {
+    canonical: string
+}
+
 export interface YouTubeVideo {
     etag: string
     id: string

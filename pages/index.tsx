@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon, RemoteIcon } from '../components/Icons'
@@ -8,7 +9,7 @@ import VideoPlayer from '../components/VideoPlayer'
 const christmasVideoId: string = 'IXU6adtXfMQ';
 
 const IndexPage = () => (
-    <Layout title="Home" description="The VECentre is a creative concept which has evolved during the COVID-19 outbreak." canonical="/">
+    <Layout title="Home" description="The VECentre is a creative concept which has evolved during the COVID-19 outbreak.">
         <HeroImage src='Homepage-MainPic@2x.jpg' icon placement="top-left"/>
         <MainHeading>
             <Italic>Christmas@</Italic> TheVECentre
@@ -35,10 +36,13 @@ const IndexPage = () => (
             </EnterTourIcon>
             <Placeholder>VIDEO HERE</Placeholder>
         </Row>
-        <TextBlock header={{ children: "Tour Guide" }}>
-            <p>Watch instruction videos, download PDF instructions and templates to bring the festivities into your home.</p>
-            <p>Fun for every age!</p>
-        </TextBlock>
+        <Link href="/tour-guide">
+            <a className="flex justify-center items-center">
+                <TextBlock header={{ children: "Tour Guide" }}>
+                    <p>View the instructions for navigating, viewing and learn how to use the interactive hotspots.</p>
+                </TextBlock>
+            </a>
+        </Link>
         <RemoteIcon />
   </Layout>
 )
