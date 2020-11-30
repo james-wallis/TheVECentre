@@ -20,7 +20,7 @@ export const Placeholder = ({ children }: IProps) => (
 )
 
 export const MainHeading = ({ children, thin, uppercase }: IHeaderProps) => (
-    <h2 className={`text-6xl text-center my-6 ${thin ? 'font-light' : 'font-normal'} ${uppercase && 'uppercase'}`}>{children}</h2>
+    <h2 className={`text-6xl text-center mt-6 md:mt-12 lg:mt-16 mb-6 ${thin ? 'font-light' : 'font-normal'} ${uppercase && 'uppercase'}`}>{children}</h2>
 )
 
 export const SubHeading = ({ children, thin, uppercase }: IHeaderProps) => (

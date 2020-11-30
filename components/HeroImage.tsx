@@ -5,6 +5,7 @@ interface IProps {
     src: string
     icon?: ReactNode
     placement?: string
+    dark?: boolean
 }
 
 const getIconPlacement = (placement: string | undefined) => {
@@ -43,11 +44,11 @@ const getIconPlacement = (placement: string | undefined) => {
     return `lg:${yPlacement} lg:${xPlacement}`;
 }
 
-const HeroImage = ({ src, icon, placement }: IProps) => (
+const HeroImage = ({ src, icon, placement, dark }: IProps) => (
     <div className="mb-4 relative">
         {icon && (
             <div className={`absolute h-full w-full flex justify-center items-center ${getIconPlacement(placement)}`}>
-                <EnterTourIcon />
+                <EnterTourIcon dark={dark} />
             </div>
         )}
         <img className="h-hero-mobile object-cover md:h-auto min-h-hero-img" src={`/images/${src}`} alt='hero image' />

@@ -4,6 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 import ScrollToViewTag from './ScrollToViewTag'
 import { NextSeo } from 'next-seo'
+import { AnimatePresence, motion } from 'framer-motion'
 
 type Props = {
     children?: ReactNode
@@ -12,24 +13,37 @@ type Props = {
     canonical: string
 }
 
+const postVariants = {
+    initial: { scale: 0.96, y: 30, opacity: 0 },
+    enter: { scale: 1, y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] } },
+    exit: {
+      scale: 0.6,
+      y: 100,
+      opacity: 0,
+      transition: { duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96] }
+    }
+  };
+
 const Layout = ({ children, title, description, canonical }: Props) => (
-    <div className="bg-white">
-        <NextSeo
-            title={title}
-            description={description}
-            canonical={`https://.com${canonical}`}
-        />
-        <Head>
-            <meta charSet="utf-8" />
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        </Head>
-        <ScrollToViewTag />
-        <Header />
-        <main className="xl:pt-header-xl lg:pt-header-lg pt-header w-screen flex flex-col justify-center items-center">
-            {children}
-        </main>
-        <Footer />
-    </div>
+    <AnimatePresence exitBeforeEnter>
+        <motion.div  className="bg-white">
+            <NextSeo
+                title={title}
+                description={description}
+                canonical={`https://.com${canonical}`}
+            />
+            <Head>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
+            <ScrollToViewTag />
+            <Header />
+            <motion.main key={title} initial="initial" animate="enter" exit="exit" variants={postVariants} className="xl:pt-header-xl lg:pt-header-lg pt-header w-screen flex flex-col justify-center items-center">
+                {children}
+            </motion.main>
+            <Footer />
+        </motion.div>
+    </AnimatePresence>
 )
 
 export default Layout
