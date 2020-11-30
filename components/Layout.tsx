@@ -25,7 +25,7 @@ const Layout = ({ children, title, description, canonical }: Props) => (
         </Head>
         <ScrollToViewTag />
         <Header />
-        <main className="xl:pt-56 pt-44 lg:pt-52 w-screen flex flex-col justify-center items-center">
+        <main className="xl:pt-header-xl lg:pt-header-lg pt-header w-screen flex flex-col justify-center items-center">
             {children}
         </main>
         <Footer />

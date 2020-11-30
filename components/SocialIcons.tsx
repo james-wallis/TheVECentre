@@ -18,10 +18,10 @@ const icons: any[] = [
 ]
 
 const SocialIcons = () => (
-    <div className="text-white text-3xl sm:text-4xl flex justify-between items-center flex-row lg:flex-col lg:my-3">
+    <div className="text-white text-3xl text-3xl xl:text-4xl flex justify-between items-center flex-row lg:flex-row lg:my-2">
         {icons.map(({ Icon, href }) => (
             <LinkToExternalSite href={href}>
-                <Icon className="mx-2 lg:mx-0" />
+                <Icon className="ml-0 mr-4 lg:mr-0 lg:ml-4" />
             </LinkToExternalSite>
         ))}
     </div>

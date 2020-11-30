@@ -40,7 +40,6 @@ const getIconPlacement = (placement: string | undefined) => {
             break;
     }
 
-    console.log(`${yPlacement} ${xPlacement}`);
     return `lg:${yPlacement} lg:${xPlacement}`;
 }
 
