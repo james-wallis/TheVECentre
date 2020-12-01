@@ -18,11 +18,11 @@ const ContactPage = () => (
         <TextBlock>
             {
                 [
-                    'Call Text or Message',
-                    <TelephoneLink />,
-                    <EmailLink />,
-                ].map(el => (
-                    <p className="text-3xl lg:text-5xl text-bold my-2">{el}</p>
+                    { id: 1, el: 'Call, Text or Message' },
+                    { id: 2, el: <TelephoneLink /> },
+                    { id: 3, el: <EmailLink /> },
+                ].map(({ id, el }) => (
+                    <p key={id} className="text-3xl lg:text-5xl text-bold my-2">{el}</p>
                 ))
             }
         </TextBlock>

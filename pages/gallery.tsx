@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { MainHeading, TextBlock, Placeholder } from '../components/PageElements'
+import { MainHeading, TextBlock } from '../components/PageElements'
 import VideoGallery from '../components/VideoGallery';
 import { YouTubeVideo } from '../interfaces';
 const YOUTUBE_PLAYLIST_ITEMS_API = 'https://www.googleapis.com/youtube/v3/playlistItems';
@@ -13,8 +13,8 @@ interface PageProps {
 const GalleryPage = ({ videos }: PageProps) => {
     return (
         <Layout title="Gallery" description="A selection of videos showing what is on offer at The VECentre">
-            <Placeholder>VIDEO HERE</Placeholder>
-            <Placeholder>VIDEO SELECTION HERE</Placeholder>
+            {/* <Placeholder>VIDEO HERE</Placeholder>
+            <Placeholder>VIDEO SELECTION HERE</Placeholder> */}
             <MainHeading thin>The gallery</MainHeading>
             <TextBlock>
                 <p>Our 3D projects have included individual rooms, galleries and exhibition stands.</p>

@@ -13,7 +13,7 @@ type Props = {
 }
 
 const postVariants = {
-    initial: { scale: 0.96, y: 30, opacity: 0 },
+    initial: { scale: 0.98, y: 0, opacity: 0 },
     enter: { scale: 1, y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] } },
     exit: {
       scale: 0.6,
@@ -25,7 +25,7 @@ const postVariants = {
 
 const Layout = ({ children, title, description }: Props) => (
     <AnimatePresence exitBeforeEnter>
-        <motion.div  className="bg-white">
+        <motion.div className="bg-white" key={title}>
             <NextSeo
                 title={title}
                 description={description}
@@ -36,7 +36,7 @@ const Layout = ({ children, title, description }: Props) => (
             </Head>
             <ScrollToViewTag />
             <Header />
-            <motion.main key={title} initial="initial" animate="enter" exit="exit" variants={postVariants} className="xl:pt-header-xl lg:pt-header-lg pt-header w-screen flex flex-col justify-center items-center">
+            <motion.main initial="initial" animate="enter" exit="exit" variants={postVariants} className="xl:pt-header-xl lg:pt-header-lg pt-header w-screen flex flex-col justify-center items-center">
                 {children}
             </motion.main>
             <Footer />

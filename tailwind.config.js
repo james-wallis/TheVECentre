@@ -19,8 +19,8 @@ module.exports = {
           'header-lg': '13rem',
           'header-xl': '14rem',
           'header-mini': '7rem',
-          'header-lg-mini': '10rem',
-          'header-xl-mini': '11rem',
+          'header-lg-mini': '9rem',
+          'header-xl-mini': '10rem',
         },
         minHeight: {
           'hero-img': '50vh',

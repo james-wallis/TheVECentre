@@ -47,7 +47,7 @@ const getIconPlacement = (placement: string | undefined) => {
 const HeroImage = ({ src, icon, placement, dark }: IProps) => (
     <div className="mb-4 relative">
         {icon && (
-            <div className={`absolute h-full w-full flex justify-center items-center ${getIconPlacement(placement)}`}>
+            <div className={`absolute h-full w-full flex justify-center items-center lg:py-10 ${getIconPlacement(placement)}`}>
                 <EnterTourIcon dark={dark} />
             </div>
         )}

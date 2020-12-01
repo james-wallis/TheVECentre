@@ -4,18 +4,18 @@ import { LinkToExternalSite, TelephoneLink, EmailLink } from './ExternalLinks'
 import { Row } from './PageElements'
 
 const links: ILink[] = [
-    { text: 'FAQ', href: '' },
+    { text: 'FAQ', href: '/' },
     { text: 'Press Office', href: '/press-office' },
-    { text: 'Privacy Policy', href: '' },
-    { text: 'Terms & Conditions', href: '' },
+    { text: 'Privacy Policy', href: '/' },
+    { text: 'Terms & Conditions', href: '/' },
 ]
 
 const Footer = () => (
-    <footer className="bg-footer w-screen flex flex-col justify-between text-white bottom-0 p-2 xl:text-xl text-lg mt-12 z-40 relative">
+    <footer className="bg-footer w-screen flex flex-col justify-between text-white bottom-0 p-2 xl:text-xl text-lg mt-12 lg:mt-16 z-40 relative">
         <Row className='lg:justify-between my-0'>
             <div className="flex items-center lg:items-end flex-col lg:flex-row">
                 <div className="text-center">
-                    <img className="w-48" src='/images/Footer-Video@2x.jpg' alt='360 virtual tour logo' />
+                    <img className="w-48" src='/images/vecfooterlogo.gif' alt='360 virtual tour logo' />
                     <p>TOURS</p>
                 </div>
                 <div className="flex flex-col text-center lg:text-left lg:ml-4 mt-6 lg:mt-auto">

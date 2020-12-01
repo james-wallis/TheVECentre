@@ -1,5 +1,5 @@
 import { useViewportScroll } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from './Navigation'
 import { Hamburger } from './NavigationIcons'
 import SocialIcons from './SocialIcons'
@@ -9,10 +9,12 @@ const Header = () => {
     const [scrollIsAtTop, setScroll] = useState(true);
     const { scrollY } = useViewportScroll()
 
-
-    scrollY.onChange(x => {
-        setScroll(x <= 70);
-    })
+    useEffect(() => {
+        const unsubscribe = scrollY.onChange(x => {
+            setScroll(x <= 70);
+        })
+        return () => unsubscribe()
+    }, [])
 
     const fullClasses = 'xl:h-header-xl lg:h-header-lg h-header';
     const minimisedClasses = 'xl:h-header-xl-mini lg:h-header-lg-mini h-header-mini';
