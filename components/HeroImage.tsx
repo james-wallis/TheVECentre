@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react"
+import Img from 'react-optimized-image';
 import { EnterTourIcon } from "./Icons"
 
 interface IProps {
@@ -13,35 +14,7 @@ const getIconPlacement = (placement: string | undefined) => {
         return '';
     }
 
-    const [yAxis, xAxis] = placement.split('-');
-    let xPlacement: string = '';
-    let yPlacement: string = '';
-
-    switch (yAxis) {
-        case 'top':
-            yPlacement = 'items-start';
-            break;
-        case 'bottom':
-            yPlacement = 'items-end';
-            break;
-        default:
-            yPlacement = 'items-center';
-            break;
-    }
-
-    switch (xAxis) {
-        case 'left':
-            xPlacement = 'justify-start';
-            break;
-        case 'right':
-            xPlacement = 'justify-end';
-            break;
-        default:
-            xPlacement = 'justify-center';
-            break;
-    }
-
-    return `lg:${yPlacement} lg:${xPlacement}`;
+    return `header-${placement}`
 }
 
 const HeroImage = ({ src, icon, placement, dark }: IProps) => (
@@ -51,7 +24,7 @@ const HeroImage = ({ src, icon, placement, dark }: IProps) => (
                 <EnterTourIcon dark={dark} />
             </div>
         )}
-        <img className="h-hero-mobile object-cover md:h-auto min-h-hero-img" src={`/images/${src}`} alt='hero image' />
+        <Img type="hero" className="h-hero-mobile object-cover md:h-auto min-h-hero-img" src={require(`../public/images/${src}`)} alt='hero image' />
     </div>
 )
 

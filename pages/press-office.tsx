@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'react-optimized-image';
 import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon } from '../components/Icons'
@@ -25,7 +26,7 @@ const PressOfficePage = () => (
         <Row>
             {
                 ['newspaper-1.jpg', 'newspaper-2.jpg', 'newspaper-3.jpg'].map((imgSrc: string) => (
-                    <img className="px-4 py-4 lg:w-1/3" src={`/images/${imgSrc}`} alt={imgSrc} />
+                    <Img key={imgSrc} className="px-4 py-4" src={require(`../public/images/${imgSrc}`)} alt={imgSrc} />
                 ))
             }
         </Row>

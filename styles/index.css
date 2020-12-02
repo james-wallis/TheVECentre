@@ -38,3 +38,14 @@ body {
 /* Stop purging. */
 
 /* Your own custom utilities */
+header picture {
+  @apply h-full
+}
+
+.header-top-left {
+  @apply lg:items-start lg:justify-start
+}
+
+.header-mid-left {
+  @apply lg:items-center lg:justify-start
+}

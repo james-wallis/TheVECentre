@@ -1,8 +1,12 @@
 import { useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Img from 'react-optimized-image'
 import Navigation from './Navigation'
 import { Hamburger } from './NavigationIcons'
 import SocialIcons from './SocialIcons'
+
+import HeaderLogo from '../public/images/Header-logo@2x.jpg'
+import Header360 from '../public/images/Header-360@2x.jpg'
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false);
@@ -34,8 +38,8 @@ const Header = () => {
             </div>
             <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
                 <div className="flex h-full max-h-full">
-                    <img className="h-full md:h-auto max-h-full object-cover" src='/images/Header-logo@2x.jpg' alt='The VECentre Logo' />
-                    <img className="max-h-full object-cover hidden lg:block" src='/images/Header-360@2x.jpg' alt='360 logo' />
+                    <Img type="header" className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} alt="The VECentre Logo" />
+                    <Img type="header" className="max-h-full object-cover hidden lg:block" src={Header360} alt="360 logo" />
                 </div>
                 <SocialIcons />
             </div>
