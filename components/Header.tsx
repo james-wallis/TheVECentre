@@ -38,8 +38,8 @@ const Header = () => {
             </div>
             <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
                 <div className="flex h-full max-h-full">
-                    <Img type="header" className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} alt="The VECentre Logo" />
-                    <Img type="header" className="max-h-full object-cover hidden lg:block" src={Header360} alt="360 logo" />
+                    <Img sizes={[250, 400]} breakpoints={[1024]} className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} alt="The VECentre Logo" />
+                    <Img sizes={[250, 400]} breakpoints={[1024]} className="max-h-full object-cover hidden lg:block" src={Header360} alt="360 logo" />
                 </div>
                 <SocialIcons />
             </div>

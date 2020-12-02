@@ -17,7 +17,7 @@ const Footer = () => (
         <Row className='lg:justify-between my-0'>
             <div className="flex items-center lg:items-end flex-col lg:flex-row">
                 <div className="text-center">
-                    <Img type="footer" className="w-48" src={FooterGif} alt='360 virtual tour logo' />
+                    <Img sizes={[150, 200]} className="w-48" src={FooterGif} alt="360 virtual tour logo" />
                     <p>TOURS</p>
                 </div>
                 <div className="flex flex-col text-center lg:text-left lg:ml-4 mt-6 lg:mt-auto">
