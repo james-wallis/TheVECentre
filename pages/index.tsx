@@ -4,6 +4,7 @@ import HeroImage from '../components/HeroImage'
 import { EnterTourIcon, RemoteIcon } from '../components/Icons'
 import Layout from '../components/Layout'
 import { Italic, MainHeading, TextBlock, Date, Row, Placeholder } from '../components/PageElements'
+import SketchFabAsset from '../components/SketchFabAsset'
 import VideoPlayer from '../components/VideoPlayer'
 
 const christmasVideoId: string = 'IXU6adtXfMQ';
@@ -44,6 +45,7 @@ const IndexPage = () => (
             </a>
         </Link>
         <RemoteIcon />
+        <SketchFabAsset modelId="f2216c89ba924ac58f68f76e27344745" />
   </Layout>
 )
 
