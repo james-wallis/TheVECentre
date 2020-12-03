@@ -41,7 +41,7 @@ const Header = () => {
             <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
                 <div className="flex h-full max-h-full">
                     <WebpJpegImage className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} webp={HeaderLogoWebp} alt="The VECentre Logo" />
-                    <WebpJpegImage className="max-h-full object-cover hidden lg:block" src={Header360} webp={Header360Webp} alt="360 logo" />
+                    <WebpJpegImage containerClassName="hidden lg:block" className="max-h-full object-cover hidden lg:block" src={Header360} webp={Header360Webp} alt="360 logo" />
                 </div>
                 <SocialIcons />
             </div>

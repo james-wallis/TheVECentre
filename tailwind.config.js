@@ -32,6 +32,7 @@ module.exports = {
           'video': '315px',
           'header-top': '45%',
           'header-bottom': '55%',
+          'hero-img': '50vh',
         },
         width: {
           'video': '560px',
