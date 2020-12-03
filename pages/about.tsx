@@ -1,10 +1,10 @@
 import React from 'react'
-import Img from 'react-optimized-image';
+import { Image } from '../components/Image';
 import HeroImage from '../components/HeroImage'
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock, Row, PageBreak, SubHeading } from '../components/PageElements'
 
-import JodiAndMishImage from '../images/jodi-and-mish.jpg'
+const JodiAndMishImage = require('../images/jodi-and-mish.jpg')
 
 const keywordList: string[] = [
     'Authentic outdoor Christmas Markets',
@@ -106,7 +106,7 @@ const AboutPage = () => (
                 {humanSkillsList.mish.map(listElement)}
             </ul>
             <div className="mx-8 ">
-                <Img src={JodiAndMishImage} alt='mish and jodi' />
+                <Image src={JodiAndMishImage} alt='mish and jodi' />
             </div>
             <ul className="text-left flex flex-row lg:flex-col w-4/5 lg:w-1/3 flex-wrap justify-center">
                 {humanSkillsList.jodi.map(listElement)}

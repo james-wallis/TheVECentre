@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import Img from 'react-optimized-image';
+import { Image } from '../components/Image';
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock, Row } from '../components/PageElements'
 
@@ -8,7 +8,7 @@ const TextAndImage = ({ children, header, src, alt, newline }: { children: React
         <TextBlock header={{ children: header, uppercase: true, thin: true }} newline={newline}>
             {children}
         </TextBlock>
-        <Img className="xl:px-48 px-4 md:px-16 lg:px-32 max-h-tgi" src={require(`../images/tour-guide/${src}`)} alt={alt} />
+        <Image className="xl:px-48 px-4 md:px-16 lg:px-24 xl:px-32 max-h-tgi" src={require(`../images/tour-guide/${src}`)} alt={alt} />
     </>
 )
 

@@ -1,12 +1,14 @@
 import { useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Img from 'react-optimized-image'
+import { WebpJpegImage } from './Image'
 import Navigation from './Navigation'
 import { Hamburger } from './NavigationIcons'
 import SocialIcons from './SocialIcons'
 
-import HeaderLogo from '../images/Header-logo@2x.jpg'
-import Header360 from '../images/Header-360@2x.jpg'
+const HeaderLogo = require('../images/Header-logo@2x.jpg')
+const HeaderLogoWebp = require('../images/Header-logo@2x.jpg?webp')
+const Header360 = require('../images/Header-360@2x.jpg')
+const Header360Webp = require('../images/Header-360@2x.jpg?webp')
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false);
@@ -38,8 +40,8 @@ const Header = () => {
             </div>
             <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
                 <div className="flex h-full max-h-full">
-                    <Img className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} alt="The VECentre Logo" />
-                    <Img className="max-h-full object-cover hidden lg:block" src={Header360} alt="360 logo" />
+                    <WebpJpegImage className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} webp={HeaderLogoWebp} alt="The VECentre Logo" />
+                    <WebpJpegImage className="max-h-full object-cover hidden lg:block" src={Header360} webp={Header360Webp} alt="360 logo" />
                 </div>
                 <SocialIcons />
             </div>

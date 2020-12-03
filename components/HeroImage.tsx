@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import Img from 'react-optimized-image';
+import { ResponsiveImage } from './Image'
 import { EnterTourIcon } from "./Icons"
 
 interface IProps {
@@ -24,7 +24,7 @@ const HeroImage = ({ src, icon, placement, dark }: IProps) => (
                 <EnterTourIcon dark={dark} />
             </div>
         )}
-        <Img className="h-hero-mobile object-cover md:h-auto min-h-hero-img" src={require(`../images/heros/${src}`)} alt='hero image' />
+        <ResponsiveImage className="h-hero-mobile object-cover md:h-auto min-h-hero-img" src={require(`../images/heros/${src}?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048`)} alt='hero image' />
     </div>
 )
 
