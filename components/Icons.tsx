@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import Img from 'react-optimized-image';
 
-import EnterTourImage from '../public/images/Icon-Entertour-1@2x.png'
-import RemoteImage from '../public/images/Icon-remote@2x.jpg'
-import TakeMeThereDark from '../public/images/takeme-dark.png'
-import TakeMeThereLight from '../public/images/takeme-light.png'
+import EnterTourImage from '../images/Icon-Entertour-1@2x.png'
+import RemoteImage from '../images/Icon-remote@2x.jpg'
+import TakeMeThereDark from '../images/takeme-dark.png'
+import TakeMeThereLight from '../images/takeme-light.png'
 
 interface IProps {
     dark?: boolean

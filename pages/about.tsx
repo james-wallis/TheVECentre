@@ -4,7 +4,7 @@ import HeroImage from '../components/HeroImage'
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock, Row, PageBreak, SubHeading } from '../components/PageElements'
 
-import JodiAndMishImage from '../public/images/jodi-and-mish.jpg'
+import JodiAndMishImage from '../images/jodi-and-mish.jpg'
 
 const keywordList: string[] = [
     'Authentic outdoor Christmas Markets',

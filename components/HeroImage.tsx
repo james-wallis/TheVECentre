@@ -24,7 +24,7 @@ const HeroImage = ({ src, icon, placement, dark }: IProps) => (
                 <EnterTourIcon dark={dark} />
             </div>
         )}
-        <Img sizes={[700, 1100, 1600]} breakpoints={[1024, 1536]} className="h-hero-mobile object-cover md:h-auto min-h-hero-img" src={require(`../public/images/${src}`)} alt='hero image' />
+        <Img className="h-hero-mobile object-cover md:h-auto min-h-hero-img" src={require(`../images/heros/${src}`)} alt='hero image' />
     </div>
 )
 

@@ -8,7 +8,7 @@ const TextAndImage = ({ children, header, src, alt, newline }: { children: React
         <TextBlock header={{ children: header, uppercase: true, thin: true }} newline={newline}>
             {children}
         </TextBlock>
-        <Img className="xl:px-48 px-4 md:px-16 lg:px-32 max-h-tgi" src={require(`../public/images/${src}`)} alt={alt} />
+        <Img className="xl:px-48 px-4 md:px-16 lg:px-32 max-h-tgi" src={require(`../images/tour-guide/${src}`)} alt={alt} />
     </>
 )
 
