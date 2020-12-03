@@ -22,6 +22,7 @@
     "react-icons": "^4.1.0",
     "react-player": "^2.7.0",
     "responsive-loader": "^2.2.1",
+    "sharp": "^0.26.3",
     "webp-loader": "^0.6.0"
   },
   "devDependencies": {
