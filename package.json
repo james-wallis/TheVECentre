@@ -10,13 +10,9 @@
   "dependencies": {
     "emailjs-com": "^2.6.4",
     "framer-motion": "^2.9.4",
-    "image-trace-loader": "^1.0.2",
-    "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^8.0.0",
     "jimp": "^0.16.1",
-    "lqip-loader": "^2.2.1",
     "next": "latest",
     "next-optimized-images": "^2.6.2",
     "next-seo": "^4.17.0",
@@ -26,7 +22,6 @@
     "react-icons": "^4.1.0",
     "react-player": "^2.7.0",
     "responsive-loader": "^2.2.1",
-    "svg-sprite-loader": "^5.0.0",
     "webp-loader": "^0.6.0"
   },
   "devDependencies": {
