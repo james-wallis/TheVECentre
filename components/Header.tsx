@@ -1,12 +1,9 @@
 import { useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Img from 'react-optimized-image'
+import Image from 'next/image';
 import Navigation from './Navigation'
 import { Hamburger } from './NavigationIcons'
 import SocialIcons from './SocialIcons'
-
-import HeaderLogo from '../images/Header-logo@2x.jpg'
-import Header360 from '../images/Header-360@2x.jpg'
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false);
@@ -37,9 +34,13 @@ const Header = () => {
                 <Hamburger onClick={() => setOpen(true)}/>
             </div>
             <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
-                <div className="flex h-full max-h-full">
-                    <Img className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} alt="The VECentre Logo" />
-                    <Img className="max-h-full object-cover hidden lg:block" src={Header360} alt="360 logo" />
+                <div className="flex">
+                    <div className="flex h-full max-h-full w-72 relative">
+                        <Image src="/images/Header-logo@2x.jpg" alt="The VECentre Logo" layout="fill" objectFit="contain" />
+                    </div>
+                    <div className="flex h-full max-h-full w-48 relative">
+                        <Image src="/images/Header-360@2x.jpg" alt="360 logo" layout="fill" objectFit="contain" />
+                    </div>
                 </div>
                 <SocialIcons />
             </div>

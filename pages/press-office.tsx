@@ -1,15 +1,11 @@
 import React from 'react'
-import Img from 'react-optimized-image';
+import Image from 'next/image'
 import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon } from '../components/Icons'
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock, Row } from '../components/PageElements'
 import VideoPlayer from '../components/VideoPlayer'
-
-import Newspaper1 from '../images/newspaper-1.jpg';
-import Newspaper2 from '../images/newspaper-1.jpg';
-import Newspaper3 from '../images/newspaper-1.jpg';
 
 const PressOfficePage = () => (
     <Layout title="Press Office" description="Arrange a press meeting or enquire about The VECentre">
@@ -28,9 +24,11 @@ const PressOfficePage = () => (
             <p>Please call Mish on <TelephoneLink /> or email the office <EmailLink /></p>
         </TextBlock>
         <Row>
-            <Img className="px-4 py-4" src={Newspaper1} alt="newspaper 1" />
-            <Img className="px-4 py-4" src={Newspaper2} alt="newspaper 2" />
-            <Img className="px-4 py-4" src={Newspaper3} alt="newspaper 3" />
+            {
+                ['newspaper-1.jpg', 'newspaper-2.jpg', 'newspaper-3.jpg'].map((imgSrc: string) => (
+                    <Image key={imgSrc} layout="fill" className="px-4 py-4" src={`/images/${imgSrc}`} alt={imgSrc} />
+                ))
+            }
         </Row>
         <VideoPlayer videoId="bcT5Mtqze38" />
   </Layout>

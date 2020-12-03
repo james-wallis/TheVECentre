@@ -11,7 +11,7 @@
     "emailjs-com": "^2.6.4",
     "framer-motion": "^2.9.4",
     "next": "latest",
-    "next-optimized-images": "^3.0.0-canary.10",
+    "next-optimized-images": "^2.6.2",
     "next-seo": "^4.17.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
