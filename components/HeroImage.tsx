@@ -18,13 +18,13 @@ const getIconPlacement = (placement: string | undefined) => {
 }
 
 const HeroImage = ({ src, icon, placement, dark }: IProps) => (
-    <div className="mb-4 relative h-hero-mobile md:h-auto  h-hero-img">
+    <div className="mb-4 relative h-hero-mobile md:h-auto h-hero-img">
         {icon && (
             <div className={`absolute h-full w-full flex justify-center items-center lg:py-10 ${getIconPlacement(placement)}`}>
                 <EnterTourIcon dark={dark} />
             </div>
         )}
-        <ResponsiveImage className="h-full object-cover h-full" src={require(`../images/heros/${src}?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048`)} alt='hero image' />
+        <ResponsiveImage className="h-full object-cover h-full" src={require(`../images/heros/${src}?sizes[]=600,sizes[]=1000,sizes[]=1500,sizes[]=2000`)} alt='hero image' />
     </div>
 )
 
