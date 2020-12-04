@@ -8,10 +8,10 @@ import { Row } from './PageElements'
 const FooterGif = require('../images/vecfooterlogo.gif');
 
 const links: ILink[] = [
-    { text: 'FAQ', href: '/' },
+    // { text: 'FAQ', href: '/' },
     { text: 'Press Office', href: '/press-office' },
-    { text: 'Privacy Policy', href: '/' },
-    { text: 'Terms & Conditions', href: '/' },
+    { text: 'Privacy Policy', href: '/privacy-policy' },
+    { text: 'Terms & Conditions', href: '/terms-and-conditions' },
 ]
 
 const Footer = () => (
