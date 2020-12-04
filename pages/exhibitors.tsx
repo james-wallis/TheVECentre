@@ -23,7 +23,7 @@ const ExhibitorPage = () => (
             <p>Arrange a meeting or enquire about prices:</p>
             <p>Please call Mish on <TelephoneLink /> or email the office <EmailLink /></p>
         </TextBlock>
-        <VideoPlayer videoId="cqzBbm9Aeho" />
+        <VideoPlayer videoId="ykcDbQB9ktI" />
   </Layout>
 )
 
