@@ -2,7 +2,7 @@ import { useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { WebpJpegImage } from './Image'
 import Navigation from './Navigation'
-import { Hamburger } from './NavigationIcons'
+import { NavigationHamburger } from './Icons'
 import SocialIcons from './SocialIcons'
 
 const HeaderLogo = require('../images/Header-logo@2x.jpg?resize')
@@ -36,7 +36,7 @@ const Header = () => {
                     <span className="inline">Exhibition Centre</span>
                 </h1>
                 <Navigation isOpen={isOpen} closeMenu={() => setOpen(false)} />
-                <Hamburger onClick={() => setOpen(true)}/>
+                <NavigationHamburger onClick={() => setOpen(true)}/>
             </div>
             <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
                 <div className="flex h-full max-h-full">
