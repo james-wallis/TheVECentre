@@ -24,7 +24,7 @@ const HeroImage = ({ src, icon, placement, dark }: IProps) => (
                 <EnterTourIcon dark={dark} />
             </div>
         )}
-        <ResponsiveImage className="h-full object-cover h-full" src={require(`../images/heros/${src}?sizes[]=600,sizes[]=1000,sizes[]=1500,sizes[]=2000`)} alt='hero image' />
+        <ResponsiveImage className="h-full object-cover h-full" src={require(`../images/heros/${src}?sizes[]=250,sizes[]=500,sizes[]=750,sizes[]=1000,sizes[]=1250,sizes[]=1500,sizes[]=1750,sizes[]=2000`)} alt='hero image' />
     </div>
 )
 

@@ -5,9 +5,9 @@ import Navigation from './Navigation'
 import { Hamburger } from './NavigationIcons'
 import SocialIcons from './SocialIcons'
 
-const HeaderLogo = require('../images/Header-logo@2x.jpg')
+const HeaderLogo = require('../images/Header-logo@2x.jpg?resize')
 const HeaderLogoWebp = require('../images/Header-logo@2x.jpg?webp')
-const Header360 = require('../images/Header-360@2x.jpg')
+const Header360 = require('../images/Header-360@2x.jpg?resize')
 const Header360Webp = require('../images/Header-360@2x.jpg?webp')
 
 const Header = () => {
