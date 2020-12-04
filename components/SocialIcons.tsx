@@ -6,17 +6,17 @@ const icons: any[] = [
     {
         id: 1,
         Icon: RiFacebookBoxFill,
-        href: '',
+        href: 'https://www.facebook.com/thevecentre',
     },
     {
         id: 2,
         Icon: FaInstagram,
-        href: '',
+        href: 'https://www.instagram.com/thevecentre',
     },
     {
         id: 3,
         Icon: FaYoutube,
-        href: '',
+        href: 'https://www.youtube.com/channel/UC848rsbkuahzKYJMkHVkaiA',
     },
 ]
 
