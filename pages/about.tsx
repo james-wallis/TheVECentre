@@ -102,13 +102,13 @@ const AboutPage = () => (
         <PageBreak />
         <SubHeading thin>THE HUMANS</SubHeading>
         <Row className="text-3xl text-gray-500 w-full items-center lg:justify-around">
-            <ul className="text-right flex flex-row lg:flex-col w-4/5 lg:w-1/3 flex-wrap justify-center">
+            <ul className="text-center lg:text-right flex flex-row lg:flex-col w-4/5 lg:w-1/3 flex-wrap justify-center">
                 {humanSkillsList.mish.map(listElement)}
             </ul>
             <div className="mx-8 ">
                 <Image src={JodiAndMishImage} alt='mish and jodi' />
             </div>
-            <ul className="text-left flex flex-row lg:flex-col w-4/5 lg:w-1/3 flex-wrap justify-center">
+            <ul className="text-center lg:text-left flex flex-row lg:flex-col w-4/5 lg:w-1/3 flex-wrap justify-center">
                 {humanSkillsList.jodi.map(listElement)}
             </ul>
         </Row>
@@ -135,7 +135,7 @@ const AboutPage = () => (
         <TextBlock newline>
             <p>Their story reflects through their work.</p>
         </TextBlock>
-        <TextBlock newline header={{ thin: true, children: 'Mish', uppercase: true }}>
+        <TextBlock header={{ thin: true, children: 'Mish', uppercase: true }}>
             <p>Mish has worked with Jodi since her first exhibition.</p>
             <p>
                 He has been at every show, setting them up and being the

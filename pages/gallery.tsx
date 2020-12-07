@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock } from '../components/PageElements'
+import SketchFabAsset from '../components/SketchFabAsset';
 import VideoGallery from '../components/VideoGallery';
 import { YouTubeVideo } from '../interfaces';
 const YOUTUBE_PLAYLIST_ITEMS_API = 'https://www.googleapis.com/youtube/v3/playlistItems';
@@ -21,6 +22,7 @@ const GalleryPage = ({ videos }: PageProps) => {
                 <p>3D models both geometric and sculpted object from food to teddies.</p>
             </TextBlock>
             <VideoGallery videos={videos} />
+            <SketchFabAsset modelId="f2216c89ba924ac58f68f76e27344745" />
     </Layout>
     )
 }
