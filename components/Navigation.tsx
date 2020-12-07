@@ -24,7 +24,7 @@ const Navigation = ({ isOpen, closeMenu }: IProps) => {
     const { pathname } = useRouter();
     const activeClasses: string = 'border-dark-blue border-opacity-30 ';
     return (
-        <nav className={`${isOpen ? 'fixed' : 'hidden'} flex lg:flex lg:mr-8 lg:w-auto lg:h-auto lg:relative lg:flex-row w-screen h-screen z-50 inset-0 bg-white flex-col justify-center items-center`}>
+        <nav className={`${isOpen ? 'fixed' : 'hidden'} flex lg:flex lg:mr-8 lg:w-auto lg:h-auto lg:relative lg:flex-row w-screen h-screen z-top inset-0 bg-white flex-col justify-center items-center`}>
             <NavigationCross onClick={closeMenu} />
             {links.map(({ text, href }) => (
                 <Link href={href} key={text}>

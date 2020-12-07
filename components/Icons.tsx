@@ -19,6 +19,7 @@ interface IClickableCrossProps extends IClickableProps {
     className?: string
     length: number
     thickness: number
+    dark?: boolean
 }
 
 const takeMeThereIcon = (dark: boolean) => {
@@ -66,13 +67,17 @@ export const NavigationHamburger = ({ onClick }: IClickableProps) => {
     );
 }
 
-export const Cross = ({ onClick, className, length, thickness }: IClickableCrossProps) => (
+export const Cross = ({ onClick, className, length, thickness, dark = true }: IClickableCrossProps) => (
     <div role="button" tabIndex={0} onClick={onClick} className={`z-50 top-0 right-0 flex flex-col justify-center items-center outline-none ${className}`}>
-        <span className={`bg-navigation-gray w-${length} h-${thickness} transform rotate-45`} />
-        <span className={`bg-navigation-gray w-${length} h-${thickness} transform -rotate-45`} style={{ marginTop: '-4px' }} />
+        <span className={`${dark ? 'bg-navigation-gray' : 'bg-white'} w-${length} h-${thickness} transform rotate-45`} />
+        <span className={`${dark ? 'bg-navigation-gray' : 'bg-white'} w-${length} h-${thickness} transform -rotate-45`} style={{ marginTop: '-4px' }} />
     </div>
 )
 
 export const NavigationCross = ({ onClick }: IClickableProps) => (
     <Cross onClick={onClick} className="fixed lg:hidden h-14 w-14 m-4 bg-opacity-nav bg-white" length={10} thickness={1} />
+)
+
+export const Spinner = ({ hidden }: { hidden: boolean }) => (
+    <div className={`${hidden && 'hidden'} spinner h-20 w-20 ease-linear rounded-full border-4 border-t-4 animate-spin mx-auto`} />
 )

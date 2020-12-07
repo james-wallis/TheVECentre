@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha';
 
 interface IInputProps {
     label: string,
@@ -27,15 +28,15 @@ const Tip = ({ children }: IElementProps) => (
     </p>
 )
 
-const Error = () => (
-    <p className="text-red-500 text-xs italic">Please fill out this field.</p>
+const Error = ({ show }: { show: boolean }) => (
+    <p className="text-red-500 text-xs italic h-2">{show && 'Please fill out this field.'} </p>
 )
 
 export const TextInput = ({ label, tip, type, placeholder, id, error, onChange, value }: IInputProps) => (
     <div className="w-full px-3">
         <Label>{label}</Label>
         <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id={id}
             type={type}
             placeholder={placeholder}
@@ -43,7 +44,7 @@ export const TextInput = ({ label, tip, type, placeholder, id, error, onChange, 
             value={value}
         />
         {tip && <Tip>{tip}</Tip>}
-        {error && <Error />}
+        {<Error show={!!error} />}
     </div>
 )
 
@@ -58,14 +59,25 @@ export const TextArea = ({ label, tip, id, error, onChange, value }: IInputProps
         />
         {/* <p className="text-gray-600 text-xs italic">Re-size can be disabled by set by resize-none / resize-y / resize-x / resize</p> */}
         {tip && <Tip>{tip}</Tip>}
-        {error && <Error />}
+        {<Error show={!!error} />}
     </div>
 )
 
-export const SubmitButton = () => (
+export const SubmitButton = ({ disabled }: { disabled: boolean }) => (
     <div className="md:w-1/3">
-        <button className="shadow bg-dark-blue hover:bg-dark-blue focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded w-full" type="button">
-            Submit
+        <button
+            disabled={disabled}
+            className="shadow bg-dark-blue hover:bg-dark-blue focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded w-full disabled:opacity-50"
+            type="submit"
+        >
+            Send
         </button>
+    </div>
+)
+
+export const Recaptcha = ({ onChange }: { onChange: (captchaValue: string | null) => void }) => (
+    // The ReCAPTCHA has a set height and width and two divs which can't be styled. Use style to allow it to be centered
+    <div className="py-10" style={{ width: 304, height: 78, margin: '0 auto' }}>
+        <ReCAPTCHA sitekey={process.env.CAPTCHA_SITE_KEY as string} onChange={onChange} />
     </div>
 )

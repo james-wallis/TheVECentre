@@ -15,7 +15,7 @@ const links: ILink[] = [
 ]
 
 const Footer = () => (
-    <footer className="bg-footer w-screen flex flex-col justify-between text-white bottom-0 p-2 xl:text-xl text-lg mt-12 lg:mt-16 z-40 relative">
+    <footer className="bg-footer w-screen flex flex-col justify-between text-white bottom-0 p-2 xl:text-xl text-lg mt-12 lg:mt-16 z-40">
         <Row className='lg:justify-between my-0'>
             <div className="flex items-center lg:items-end flex-col lg:flex-row">
                 <div className="text-center">

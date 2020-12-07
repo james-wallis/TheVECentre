@@ -26,3 +26,10 @@ export interface YouTubeVideo {
         title: string
     }
 }
+
+export interface IContactFormDetails {
+    name: string
+    email: string
+    company: string
+    message: string
+}

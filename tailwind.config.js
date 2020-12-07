@@ -37,10 +37,15 @@ module.exports = {
         width: {
           'video': '560px',
         },
+        zIndex: {
+          'top': '100',
+        }
       },
     },
     variants: {
-      extend: {},
+      extend: {
+        opacity: ['disabled'],
+      }
     },
     plugins: [],
   }
