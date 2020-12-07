@@ -1,86 +1,109 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
+import { IContactFormDetails } from "../interfaces";
 import { SubmitButton, TextArea, TextInput } from "./FormInputs";
-// import emailjs from "emailjs-com";
 
-interface formDetails {
-    name: string
-    email: string
-    company: string
-    message: string
-}
+const reContainsLetters = new RegExp('[a-zA-Z]');
 
-const initialState: formDetails = {
+const initialState: IContactFormDetails = {
     name: '',
     email: '',
     company: '',
     message: '',
 };
 
-function reducer(state: formDetails, action: { type: string, value: string }) {
+function reducer(state: IContactFormDetails, action: { type: string, value: string }) {
     if (!Object.keys(initialState).includes(action.type)) {
-        throw new Error();
+        throw new Error('Invalid action type given to reducer');
     }
+
     return { ...state, [action.type]: action.value };
 }
 
-const ContactForm = () => {
+function validate(value: string) {
+    return reContainsLetters.test(value);
+}
+
+function validateAllRequired(values: string[]) {
+    for (const val of values) {
+        if (!validate(val)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+const ContactForm = ({ submitForm }: { submitForm: (formState: IContactFormDetails) => void }) => {
     const [formState, dispatch] = useReducer(reducer, initialState);
-    // const [showFormErr, setShowFormErr] = useState(false);
-    // const [formSubmitted, setFormSubmitted] = useState({ title: '', paragraph: '' });
-    // const [showCaptcha, setShowCaptcha] = useState(false);
     const { name, email, company, message } = formState;
 
-    // const submitFormAndShowCaptcha = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     e.preventDefault();
-    //     setShowCaptcha(true);
-    // };
+    const [formStateHasChanged, setHasChanged] = useState(false);
+    const [formIsValid, setFormIsValid] = useState(false);
 
-    // const sendEmail = (captchaValue: any) => {
-    //     if (name === '' || email === '' || company === '' || message === '') {
-    //         setShowFormErr(true);
-    //         return;
-    //     }
+    useEffect(() => {
+        // Only set changed to true the first time that formState is changed or after a reset
+        if (!formStateHasChanged && (name || email || company || message)) {
+            setHasChanged(true);
+        }
 
-    //     const params = {
-    //         ...formState,
-    //         'g-recaptcha-response': captchaValue,
-    //     };
+        const newFormIsValid = validateAllRequired([name, email, message]);
+        if (formIsValid !== newFormIsValid) {
+            setFormIsValid(newFormIsValid);
+        }
+    }, [formState]);
 
-    //     setFormSubmitted({ title: 'Sending message...', paragraph: '' });
-    //     emailjs.send(
-    //         process.env.EMAIL_JS_SERVICE as string,
-    //         process.env.EMAIL_JS_TEMPLATE as string,
-    //         params,
-    //         process.env.EMAIL_JS_USER as string,
-    //     )
-    //     .then(({ status }) => {
-    //         if (status === 200) {
-    //             setFormSubmitted({ title: 'Message has been sent', paragraph: 'Mike will be in contact with you soon.' });
-    //         } else {
-    //             setFormSubmitted({ title: 'Unexpected status code returned from EmailJS, try again later', paragraph: 'Please contact Mish either by phone or email.' });
-    //         }
-    //     }, () => {
-    //         setFormSubmitted({ title: 'Error sending message, try again later', paragraph: 'Please contact Mish either by phone or email.' });
-    //     });
-    // };
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-    // console.log(formState);
+        // Validate form
+        if (formIsValid) {
+            submitForm(formState)
+            Object.keys(formState).forEach(key => dispatch({ type: key, value: '' }))
+            setHasChanged(false)
+        }
+    }
+
     return (
-        <form className="w-11/12 lg:w-full max-w-lg mt-12">
+        <form onSubmit={onSubmit} className="w-11/12 lg:w-full max-w-lg mt-12">
             <div className="flex flex-wrap -mx-3 mb-6">
-                <TextInput id="name" type="text" label="Name" value={name} onChange={(e) => dispatch({ type: 'name', value: e.target.value })} />
+                <TextInput
+                    id="name"
+                    type="text"
+                    label="Name*"
+                    value={name}
+                    onChange={(e) => dispatch({ type: 'name', value: e.target.value })}
+                    error={formStateHasChanged && !validate(name)}
+                />
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
-                <TextInput id="email" type="email" label="Email" value={email} onChange={(e) => dispatch({ type: 'email', value: e.target.value })} />
+                <TextInput
+                    id="email"
+                    type="email"
+                    label="Email*"
+                    value={email}
+                    onChange={(e) => dispatch({ type: 'email', value: e.target.value })}
+                    error={formStateHasChanged && !validate(email)}
+                />
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
-                <TextInput id="company" type="text" label="Company" value={company} onChange={(e) => dispatch({ type: 'company', value: e.target.value })} />
+                <TextInput
+                    id="company"
+                    type="text"
+                    label="Company"
+                    value={company}
+                    onChange={(e) => dispatch({ type: 'company', value: e.target.value })}
+                />
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
-                <TextArea id="message" label="Message" value={message} onChange={(e) => dispatch({ type: 'message', value: e.target.value })} />
+                <TextArea
+                    id="message"
+                    label="Message*"
+                    value={message}
+                    onChange={(e) => dispatch({ type: 'message', value: e.target.value })}
+                    error={formStateHasChanged && !validate(message)}
+                />
             </div>
             <div className="md:flex md:items-center md:justify-center w-full">
-                <SubmitButton />
+                <SubmitButton disabled={!formIsValid} />
             </div>
         </form>
     )

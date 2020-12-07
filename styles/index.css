@@ -33,6 +33,12 @@ body {
   @apply absolute bg-dark-blue z-20;
 }
 
+
+.spinner {
+  @apply border-gray-200;
+  border-top-color: #0F1217;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

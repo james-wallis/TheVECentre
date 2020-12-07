@@ -1,5 +1,5 @@
 interface IProps {
-    onClick: any
+    onClick: React.MouseEventHandler<HTMLDivElement>
 }
 
 export const Hamburger = ({ onClick }: IProps) => {
