@@ -22,16 +22,26 @@ const links: ILink[] = [
 ]
 
 const variants = {
-    open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: '100%' },
-  };
+    open: {
+        opacity: 1,
+        x: 0,
+        display: 'flex',
+    },
+    closed: {
+        opacity: 0,
+        x: '100%',
+        transitionEnd: {
+            display: 'none',
+        },
+    },
+};
 
-  const transition = {
+const transition = {
     type: 'spring',
     mass: 0.7,
     damping: 12,
     delay: 0,
-  };
+};
 
 const Navigation = ({ isOpen, closeMenu }: IProps) => {
     const { pathname } = useRouter();
@@ -42,9 +52,9 @@ const Navigation = ({ isOpen, closeMenu }: IProps) => {
         <motion.nav
             initial={isMobileNav ? 'closed' : 'open'}
             animate={!isOpen && isMobileNav ? 'closed' : 'open'}
-            variants={variants}
+            variants={isMobileNav ? variants : { open: variants.open }}
             transition={transition}
-            className={`fixed flex lg:flex lg:mr-8 lg:w-auto lg:h-auto lg:relative lg:flex-row w-screen h-screen z-top inset-0 bg-white flex-col justify-center items-center`}
+            className={`hidden fixed lg:flex lg:mr-8 lg:w-auto lg:h-auto lg:relative lg:flex-row w-screen h-screen z-top inset-0 bg-white flex-col justify-center items-center`}
         >
             <NavigationCross onClick={closeMenu} />
             {links.map(({ text, href }) => (
