@@ -3,7 +3,7 @@ title: "Terms and Conditions"
 description: "The Terms and Conditions for TheVECentre"
 ---
 
-**Terms and Conditions**
+## Terms and Conditions
 
 Last updated: 1 December 2020
 

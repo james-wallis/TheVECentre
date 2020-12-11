@@ -39,6 +39,38 @@ body {
   border-top-color: #0F1217;
 }
 
+.markdown {
+  @apply my-10;
+}
+
+.markdown h2 {
+  @apply text-2xl font-semibold mb-4 mt-6;
+}
+
+.markdown h3 {
+  @apply text-xl font-semibold mb-4 mt-6;
+}
+
+.markdown p {
+  @apply my-2;
+}
+
+.markdown strong {
+  @apply mb-2 mt-4 block;
+}
+
+.markdown ul {
+  @apply ml-6;
+}
+
+.markdown ul li {
+  @apply list-disc;
+}
+
+.markdown ul li p {
+  @apply my-auto;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

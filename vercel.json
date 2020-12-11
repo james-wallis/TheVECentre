@@ -1,6 +1,8 @@
 {
     "redirects": [
-        { "source": "/github", "destination": "https://github.com/james-wallis/TheVECentre" },
-        { "source": "/tours", "destination": "/api/tours" }
-    ]
+        { "source": "/github", "destination": "https://github.com/james-wallis/TheVECentre" }
+    ],
+    "rewrites": [
+        { "source": "/tours/:tour", "destination": "/api/tours" }
+      ]
 }

@@ -3,7 +3,7 @@ title: "Privacy Policy"
 description: "The Privacy Policy for TheVECentre"
 ---
 
-**Privacy Policy**
+## Privacy Policy
 
 Effective date: December 1 2020
 
@@ -13,7 +13,7 @@ This page informs you of our policies regarding the collection, use, and disclos
 
 We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information following this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://thevecentre.com/terms-and-conditions.
 
-**Definitions**
+### Definitions
 
 **Personal Data**
 
@@ -51,7 +51,7 @@ The User is the individual using our Service. The User corresponds to the Data S
 
 We collect several different types of information for various purposes to provide and improve our Service to you.
 
-**Types of Data Collected**
+### Types of Data Collected
 
 **Personal Data**
 
@@ -139,7 +139,7 @@ Your consent to this Privacy Policy, followed by your submission of such informa
 
 The VECentre will take all steps reasonably necessary to ensure that your data is treated securely and per this Privacy Policy. No transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place, including the security of your data and other personal information.
 
-**Disclosure Of Data**
+### Disclosure Of Data
 
 **Disclosure for Law Enforcement**
 

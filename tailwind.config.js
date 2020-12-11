@@ -26,7 +26,7 @@ module.exports = {
           'hero-img': '50vh',
         },
         maxHeight: {
-          'tgi': '70vh',
+          'tgi': '80vh',
         },
         height: {
           'video': '315px',
