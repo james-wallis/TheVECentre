@@ -3,6 +3,6 @@
         { "source": "/github", "destination": "https://github.com/james-wallis/TheVECentre" }
     ],
     "rewrites": [
-        { "source": "/tours/:tour", "destination": "/api/tours" }
+        { "source": "/tours/:tour*", "destination": "/api/tours/:tour*" }
       ]
 }
