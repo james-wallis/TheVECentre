@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image } from '../components/Image';
-import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
+import { EmailLink, LinkToExternalSite, TelephoneLink } from '../components/ExternalLinks'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon } from '../components/Icons'
 import Layout from '../components/Layout'
@@ -32,6 +32,14 @@ const PressOfficePage = () => (
             <Image className="px-4 py-4" src={Newspaper2} alt="newspaper 2" />
             <Image className="px-4 py-4" src={Newspaper3} alt="newspaper 3" />
         </Row>
+        <TextBlock>
+            <h3 className="mb-4 text-3xl">Press Release Downloads</h3>
+            <LinkToExternalSite href="/press-releases/VECentre1.pdf">
+                <span className="block">Press release 1</span>
+                <span className="block">ARTISTS AND CREATIVES TO BE SAVED BY THE VECENTRE</span>
+                <span className="block">(12th December 2020)</span>
+            </LinkToExternalSite>
+        </TextBlock>
         <VideoPlayer videoId="bcT5Mtqze38" />
   </Layout>
 )
