@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+const AWS_PREFIX='https://thevecentre.s3.eu-west-2.amazonaws.com';
+
 const panoramas: { [key: string ]: { [key: string]: number } } = {
     christmas: {
         baking: 19,
@@ -7,6 +9,9 @@ const panoramas: { [key: string ]: { [key: string]: number } } = {
         santa: 30,
         market: 7,
     },
+    main: {
+        lift: 30,
+    }
 }
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
@@ -18,20 +23,21 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     const [name, area] = tour;
 
     switch (name) {
-        case 'main-hall':
-            redirectURL = 'https://thevecentre.s3.eu-west-2.amazonaws.com/main-hall/index.htm';
+        case 'main':
+            redirectURL = `${AWS_PREFIX}/main-hall/index.htm`;
             break;
         case 'christmas':
-            redirectURL = 'https://thevecentre.s3.eu-west-2.amazonaws.com/christmas/index.htm';
-            if (area) {
-                panoramaIndex = panoramas.christmas[area];
-            }
+            redirectURL = `${AWS_PREFIX}/christmas/index.htm`;
             break;
     }
 
     if (!redirectURL) {
         res.statusCode = 404;
         return res.end('Tour not found');
+    }
+
+    if (area) {
+        panoramaIndex = panoramas[name][area];
     }
 
     const url: string = panoramaIndex !== -1 ? `${redirectURL}?media-index=${panoramaIndex}` : redirectURL;
