@@ -8,11 +8,11 @@ import VideoPlayer from '../components/VideoPlayer'
 
 const HirePage = () => (
     <Layout title="Hire Venue" description="The VECentre is the perfect venue to host your event, during the pandemic and beyond.">
-        <HeroImage src='Mainpic-Venuehire.jpg' icon placement="top-left" />
+        <HeroImage src='Mainpic-Venuehire.jpg' icon placement="top-left" href="/tours/main/office" />
         <MainHeading thin>
             Venue Hire The VECentre
         </MainHeading>
-        <EnterTourIcon dark />
+        <EnterTourIcon href="/tours/main/office" dark />
         <VideoPlayer videoId="cqzBbm9Aeho" />
         <TextBlock>
             <p>We would love to discuss your event and tell you about the VECentre.</p>

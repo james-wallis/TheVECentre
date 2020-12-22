@@ -3,21 +3,23 @@ import React from 'react'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon, RemoteIcon } from '../components/Icons'
 import Layout from '../components/Layout'
-import { Italic, MainHeading, TextBlock, Date, Row, Placeholder } from '../components/PageElements'
+import { Italic, MainHeading, TextBlock, Date, Row } from '../components/PageElements'
 import VideoPlayer from '../components/VideoPlayer'
 
 const christmasVideoId: string = 'IXU6adtXfMQ';
+const craft1: string = 'zVIpAeybG10';
+const craft2: string = 'UgFNZBpdiwg';
 
 const IndexPage = () => (
     <Layout title="Home" description="The VECentre is a creative concept which has evolved during the COVID-19 outbreak.">
-        <HeroImage src='Homepage-MainPic@2x.jpg' icon placement="top-left"/>
+        <HeroImage src='Homepage-MainPic@2x.jpg' icon href="/tours/christmas" placement="top-left"/>
         <MainHeading>
             <Italic>Christmas@</Italic> TheVECentre
         </MainHeading>
         <Date>
             14 December - 7 January
         </Date>
-        <EnterTourIcon dark />
+        <EnterTourIcon href="/tours/christmas" dark />
         <TextBlock header={{ children: <Italic>Christmas Market</Italic> }}>
             <p>Immerse yourself in Christmas by walking around our interactive snowy log cabins.</p>
             <p>Each cabin will host a variety of art and crafts from the finest artisans.</p>
@@ -30,11 +32,11 @@ const IndexPage = () => (
             <p>Fun for every age!</p>
         </TextBlock>
         <Row className="items-center">
-            <Placeholder>VIDEO HERE</Placeholder>
-            <EnterTourIcon>
+            <VideoPlayer videoId={craft1} />
+            <EnterTourIcon href="/tours/christmas">
                 Teleport straight to the fun stuff!
             </EnterTourIcon>
-            <Placeholder>VIDEO HERE</Placeholder>
+            <VideoPlayer videoId={craft2} />
         </Row>
         <Link href="/tour-guide">
             <a className="flex justify-center items-center">

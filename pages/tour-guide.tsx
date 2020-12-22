@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import { Image } from '../components/Image';
 import Layout from '../components/Layout'
 import { MainHeading, TextBlock, Row } from '../components/PageElements'
+import VideoPlayer from '../components/VideoPlayer';
 
 const TextAndImage = ({ children, header, src, alt, newline }: { children: ReactNode, header: string, src: string, alt: string, newline?: boolean }) => (
     <>
@@ -26,6 +27,7 @@ const TourGuidePage = () => (
         <TextBlock>
             <p>Click on 'hotspots' to activate the interaction.</p>
         </TextBlock>
+        <VideoPlayer videoId="_pzGuuzW-yU" />
         <Row>
             <div className="lg:mr-6 w-full lg:w-1/2 flex flex-col items-center">
                 <TextAndImage header="Entering a tour" src="Icon-Entertour@2x.png" alt="enter tour icon">
