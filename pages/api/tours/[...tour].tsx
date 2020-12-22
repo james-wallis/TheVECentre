@@ -6,12 +6,19 @@ const panoramas: { [key: string ]: { [key: string]: number } } = {
     christmas: {
         baking: 19,
         craft: 18,
-        santa: 30,
+        santa: 22,
         market: 7,
     },
     main: {
+        outside: 1,
+        reception: 3,
         lift: 30,
-    }
+
+        // Office tour idk why it's main/
+        office: 1,
+        'press-office': 14,
+        artistjodi: 22,
+    },
 }
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
@@ -20,11 +27,16 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     let redirectURL: string = '';
     let panoramaIndex: number = -1;
 
-    const [name, area] = tour;
+    const name: string = tour && tour[0] ? tour[0].toLowerCase() : '';
+    const area: string = tour && tour[1] ? tour[1].toLowerCase() : '';
 
     switch (name) {
         case 'main':
-            redirectURL = `${AWS_PREFIX}/main-hall/index.htm`;
+            if (area === 'office' || area === 'press-office' || area === 'artistjodi') {
+                redirectURL = `${AWS_PREFIX}/office/index.htm`;
+            } else {
+                redirectURL = `${AWS_PREFIX}/main/index.htm`;
+            }
             break;
         case 'christmas':
             redirectURL = `${AWS_PREFIX}/christmas/index.htm`;
@@ -37,10 +49,10 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     if (area) {
-        panoramaIndex = panoramas[name][area];
+        panoramaIndex = panoramas[name.toLowerCase()][area.toLowerCase()];
     }
 
-    const url: string = panoramaIndex !== -1 ? `${redirectURL}?media-index=${panoramaIndex}` : redirectURL;
+    const url: string = panoramaIndex && panoramaIndex !== -1 ? `${redirectURL}?media-index=${panoramaIndex}` : redirectURL;
 
     res.redirect(url);
 }
