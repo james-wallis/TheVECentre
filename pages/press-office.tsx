@@ -17,7 +17,7 @@ const PressOfficePage = () => (
         <MainHeading>
            Press Office
         </MainHeading>
-        <EnterTourIcon dark />
+        <EnterTourIcon dark href="/tours/main/press-office" />
         <TextBlock>
             <p>We encourage press contact to spread the word about The VECentre.</p>
             <p>We can arrage a meeting in the virtual Press Office where we can video call and show you around the centre.</p>

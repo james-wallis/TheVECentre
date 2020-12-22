@@ -22,7 +22,7 @@ const HeroImage = ({ src, icon, placement, dark, href }: IProps) => (
     <div className="mb-4 relative h-hero-mobile md:h-auto h-hero-img">
         {icon && (
             <div className={`absolute h-full w-full flex justify-center items-center lg:py-10 ${getIconPlacement(placement)}`}>
-                <EnterTourIcon dark={dark} href={href} />
+                <EnterTourIcon dark={dark} href={href || ''} />
             </div>
         )}
         <ResponsiveImage className="h-full object-cover h-full" src={require(`../images/heros/${src}?sizes[]=250,sizes[]=500,sizes[]=750,sizes[]=1000,sizes[]=1250,sizes[]=1500,sizes[]=1750,sizes[]=2000`)} alt='hero image' />
