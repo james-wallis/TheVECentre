@@ -19,6 +19,10 @@ const panoramas: { [key: string ]: { [key: string]: number } } = {
         'press-office': 14,
         artistjodi: 22,
     },
+    artistjodi: {
+        gallery: 1,
+        studio: 62,
+    }
 }
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
@@ -40,6 +44,9 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
             break;
         case 'christmas':
             redirectURL = `${AWS_PREFIX}/christmas/index.htm`;
+            break;
+        case 'artistjodi':
+            redirectURL = `${AWS_PREFIX}/gallery/index.htm`
             break;
     }
 
