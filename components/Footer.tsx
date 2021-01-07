@@ -49,7 +49,7 @@ const Footer = () => (
         </Row>
         <Row>
             <div className="lg:ml-4 text-base text-center lg:text-left">
-                <p>&copy;2020 Designed by Inner Sancum Design, <LinkToExternalSite href="https://wallis.dev?ref=vec">Website built by James.</LinkToExternalSite></p>
+                <p>&copy;2020 Designed by Inner Sanctum Design, <LinkToExternalSite href="https://wallis.dev?ref=vec">Website built by James.</LinkToExternalSite></p>
                 <p>All rights reserved.</p>
             </div>
         </Row>
