@@ -15,14 +15,14 @@ function MyApp({ Component, pageProps, router }: AppProps) {
                 description: 'The VECentre - The perfect venue to host your virtual event or trade show.',
                 site_name: 'The VECentre',
                 images: [
-                  {
-                    url: 'https://thevecentre.com/icons/thevec.jpg',
-                    width: 512,
-                    height: 512,
-                    alt: 'The VECentre logo',
-                  },
+                    {
+                      url: 'https://thevecentre.com/icons/thevec.jpg',
+                      width: 512,
+                      height: 512,
+                      alt: 'The VECentre logo',
+                    },
                 ],
-              }}
+            }}
             canonical={url}
         />
         <Component {...pageProps} canonical={url} />

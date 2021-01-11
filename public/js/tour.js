@@ -7,23 +7,22 @@ function redirect()
 {
     location.href = url;
 }
-function embed()
-{
-    var attrs = {
-        'width': '100vh',
-        'height': '100vh',
-        'src': url,
-        'scrolling': 'auto',
-        'frameborder': '0',
-        'allowfullscreen': '1',
-        'allow': 'fullscreen; accelerometer; gyroscope; magnetometer; vr'
-    };
-    var iframe = document.createElement('IFRAME');
-    for (var name in attrs)
-        iframe.setAttribute(name, attrs[name]);
-    document.body.appendChild(iframe);
-    // document.getElementById("tour-container").appendChild(iframe)
-}
+// function embed()
+// {
+//     var attrs = {
+//         'width': '100%',
+//         'height': '100%',
+//         'src': url,
+//         'scrolling': 'auto',
+//         'frameborder': '0',
+//         'allowfullscreen': '1',
+//         'allow': 'fullscreen; accelerometer; gyroscope; magnetometer; vr'
+//     };
+//     var iframe = document.createElement('IFRAME');
+//     for (var name in attrs)
+//         iframe.setAttribute(name, attrs[name]);
+//     document.body.appendChild(iframe);
+// }
 if (mobile)
 {
     redirect();
