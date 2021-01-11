@@ -37,16 +37,16 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     switch (name) {
         case 'main':
             if (area === 'office' || area === 'press-office' || area === 'artistjodi') {
-                redirectURL = `${AWS_PREFIX}/office/index.htm`;
+                redirectURL = `${AWS_PREFIX}/office`;
             } else {
-                redirectURL = `${AWS_PREFIX}/main/index.htm`;
+                redirectURL = `${AWS_PREFIX}/main`;
             }
             break;
         case 'christmas':
-            redirectURL = `${AWS_PREFIX}/christmas/index.htm`;
+            redirectURL = `${AWS_PREFIX}/christmas`;
             break;
         case 'artistjodi':
-            redirectURL = `${AWS_PREFIX}/gallery/index.htm`
+            redirectURL = `${AWS_PREFIX}/gallery`;
             break;
     }
 
@@ -55,11 +55,17 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         return res.end('Tour not found');
     }
 
+    // Redirect for social icon (OpenGraph)
+    if (tour[tour.length-1] === 'socialThumbnail.jpg') {
+        const socialThumbnailUrl: string = `${redirectURL}/socialThumbnail.jpg`;
+        return res.redirect(socialThumbnailUrl);
+    }
+
     if (area) {
         panoramaIndex = panoramas[name.toLowerCase()][area.toLowerCase()];
     }
 
-    const url: string = panoramaIndex && panoramaIndex !== -1 ? `${redirectURL}?media-index=${panoramaIndex}` : redirectURL;
+    const url: string = panoramaIndex && panoramaIndex !== -1 ? `${redirectURL}/index.htm?media-index=${panoramaIndex}` : `${redirectURL}/index.htm`;
 
     res.redirect(url);
 }
