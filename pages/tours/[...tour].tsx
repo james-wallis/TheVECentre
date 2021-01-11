@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 import { NextRouter, useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AWS_PREFIX='https://thevecentre.s3.eu-west-2.amazonaws.com';
 
@@ -90,7 +90,6 @@ async function redirectIfMobile(router: NextRouter, url: string) {
 const Tour = () => {
     const router = useRouter();
     const { tour } = router.query;
-    console.log(tour);
 
     const redirectToMainTour = () => {
         typeof window !== 'undefined' && router.push('/tours/main');
@@ -107,10 +106,23 @@ const Tour = () => {
         redirectIfMobile(router, url);
     }, [router, url]);
 
+    const windowSizeChanged = () => {
+        typeof window !== 'undefined' && setIframeHeight(`${window.innerHeight}px`);
+    }
+
+    const [iframeHeight, setIframeHeight] = useState('100vh');
+    useEffect(() => {
+        window.addEventListener('resize', windowSizeChanged);
+        windowSizeChanged();
+        return () => {
+            window.removeEventListener('resize', windowSizeChanged)
+        }
+    }, [])
+
     const tourName: string = tour && tour[0] ? tour[0].charAt(0).toUpperCase() + tour[0].toLowerCase().slice(1) : 'Main';
     const description: string = `The immersive ${tourName} 3D tour brought to you by TheVECentre`;
     return (
-        <div className="h-screen w-screen">
+        <div className=" w-screen" style={{ height: iframeHeight }}>
             <NextSeo
                 title={`${tourName} tour`}
                 description={description}
