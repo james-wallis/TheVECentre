@@ -23,7 +23,7 @@ const panoramas: { [key: string ]: { [key: string]: number } } = {
     },
 }
 
-function getTourURL(tour: string[]): string {
+function getTourURLs(tour: string[]): string[] {
     let urlPrefix: string = '';
     let panoramaIndex: number = -1;
 
@@ -33,22 +33,30 @@ function getTourURL(tour: string[]): string {
     switch (name) {
         case 'main':
             if (area === 'office' || area === 'press-office' || area === 'artistjodi') {
-                urlPrefix = `${AWS_PREFIX}/office/index.htm`;
+                urlPrefix = `${AWS_PREFIX}/office`;
             } else {
-                urlPrefix = `${AWS_PREFIX}/main/index.htm`;
+                urlPrefix = `${AWS_PREFIX}/main`;
             }
             break;
         case 'christmas':
-            urlPrefix = `${AWS_PREFIX}/christmas/index.htm`;
+            urlPrefix = `${AWS_PREFIX}/christmas`;
             break;
+        case 'artistjodi':
+            urlPrefix = `${AWS_PREFIX}/gallery`;
+            break;
+    }
+
+    if (!urlPrefix) {
+        return [];
     }
 
     if (area) {
         panoramaIndex = panoramas[name.toLowerCase()][area.toLowerCase()];
     }
 
-    const url: string = panoramaIndex && panoramaIndex !== -1 ? `${urlPrefix}?media-index=${panoramaIndex}` : urlPrefix;
-    return url;
+    const url: string = panoramaIndex && panoramaIndex !== -1 ? `${urlPrefix}/index.htm?media-index=${panoramaIndex}` : `${urlPrefix}/index.htm`;
+    const socialThumbnailUrl: string = `${urlPrefix}/socialThumbnail.jpg`;
+    return [url, socialThumbnailUrl];
 }
 
 async function shouldRedirect(): Promise<boolean> {
@@ -88,7 +96,7 @@ const Tour = () => {
         typeof window !== 'undefined' && router.push('/tours/main');
     }
 
-    const url = getTourURL(tour as string[]);
+    const [url, socialThumbnailUrl] = getTourURLs(tour as string[]);
 
     // Only redirect to main tour if tour is not found
     if (tour && !url) {
@@ -100,22 +108,23 @@ const Tour = () => {
     }, [router, url]);
 
     const tourName: string = tour && tour[0] ? tour[0].charAt(0).toUpperCase() + tour[0].toLowerCase().slice(1) : 'Main';
+    const description: string = `The immersive ${tourName} 3D tour brought to you by TheVECentre`;
     return (
         <div className="h-screen w-screen">
             <NextSeo
                 title={`${tourName} tour`}
-                description={`The immersive ${tourName} 3D tour brought to you by TheVECentre`}
+                description={description}
                 openGraph={{
                     type: 'website',
                     locale: 'en_IE',
                     url,
-                    description: 'The VECentre - The perfect venue to host your virtual event or trade show.',
+                    description,
                     site_name: 'The VECentre',
                     images: [
                         {
-                          url: 'https://thevecentre.com/icons/thevec.jpg',
-                          width: 512,
-                          height: 512,
+                          url: socialThumbnailUrl,
+                          width: 1196,
+                          height: 627,
                           alt: 'Tour Icon',
                         },
                     ],
