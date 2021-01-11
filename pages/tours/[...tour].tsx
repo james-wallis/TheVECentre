@@ -130,6 +130,7 @@ const Tour = () => {
                     ],
                 }}
             />
+            {/* https://beta.3dvista.com/en/wiki/how-to-customize-the-url-of-your-tours-to-your-own-domain/ */}
             <iframe
                 width="100%"
                 height="100%"
