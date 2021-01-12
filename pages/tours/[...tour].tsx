@@ -21,6 +21,10 @@ const panoramas: { [key: string ]: { [key: string]: number } } = {
         'press-office': 14,
         artistjodi: 22,
     },
+    artistjodi: {
+        gallery: 1,
+        studio: 62,
+    },
 }
 
 function getTourURLs(tour: string[]): string[] {
