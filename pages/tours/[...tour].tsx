@@ -2,6 +2,8 @@ import { NextSeo } from 'next-seo';
 import { NextRouter, useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
+import Tours from '../../tours.json';
+
 const AWS_PREFIX='https://thevecentre.s3.eu-west-2.amazonaws.com';
 
 const panoramas: { [key: string ]: { [key: string]: number } } = {
@@ -159,5 +161,20 @@ const Tour = () => {
         </div>
     )
 }
+
+// export async function getStaticProps({ params }) {
+
+export async function getStaticPaths() {
+    const paths = [];
+    Object.keys(Tours).forEach((name: string) => {
+        const tour = Tours[name];
+
+    })
+
+    return {
+        paths: [],
+        fallback: false,
+    };
+  }
 
 export default Tour;

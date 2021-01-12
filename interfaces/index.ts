@@ -33,3 +33,13 @@ export interface IContactFormDetails {
     company: string
     message: string
 }
+
+export interface ITour {
+    title: string,
+    description: string
+    path: string
+    subpaths: {
+        slug: string,
+        mediaIndex: number,
+    }
+}
