@@ -39,7 +39,6 @@ export interface ITour {
     description: string
     path: string
     subpaths: {
-        slug: string,
-        mediaIndex: number,
+        [key: string]: number
     }
 }

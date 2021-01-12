@@ -1,37 +1,14 @@
 import { NextSeo } from 'next-seo';
 import { NextRouter, useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { ITour } from '../../interfaces';
 
-import Tours from '../../tours.json';
+import Tours from '../../tours';
 
 const AWS_PREFIX='https://thevecentre.s3.eu-west-2.amazonaws.com';
 
-const panoramas: { [key: string ]: { [key: string]: number } } = {
-    christmas: {
-        baking: 19,
-        craft: 18,
-        santa: 22,
-        market: 7,
-    },
-    main: {
-        outside: 1,
-        reception: 3,
-        lift: 30,
-
-        // Office tour idk why it's main/
-        office: 1,
-        'press-office': 14,
-        artistjodi: 22,
-    },
-    artistjodi: {
-        gallery: 1,
-        studio: 62,
-    },
-}
-
-function getTourURLs(tour: string[]): string[] {
+function getTourURLs(tour: string[], mediaIndex: number): string[] {
     let urlPrefix: string = '';
-    let panoramaIndex: number = -1;
 
     const name: string = tour && tour[0] ? tour[0].toLowerCase() : '';
     const area: string = tour && tour[1] ? tour[1].toLowerCase() : '';
@@ -56,11 +33,7 @@ function getTourURLs(tour: string[]): string[] {
         return [];
     }
 
-    if (area) {
-        panoramaIndex = panoramas[name.toLowerCase()][area.toLowerCase()];
-    }
-
-    const url: string = panoramaIndex && panoramaIndex !== -1 ? `${urlPrefix}/index.htm?media-index=${panoramaIndex}` : `${urlPrefix}/index.htm`;
+    const url: string = mediaIndex > 0 ? `${urlPrefix}/index.htm?media-index=${mediaIndex}` : `${urlPrefix}/index.htm`;
     const socialThumbnailUrl: string = `${urlPrefix}/socialThumbnail.jpg`;
     return [url, socialThumbnailUrl];
 }
@@ -93,15 +66,21 @@ async function redirectIfMobile(router: NextRouter, url: string) {
     }
 }
 
-const Tour = () => {
+interface IProps {
+    title: string;
+    description: string;
+    tour: string[];
+    mediaIndex: number;
+}
+
+const Tour = ({ title, description, tour, mediaIndex }: IProps) => {
     const router = useRouter();
-    const { tour } = router.query;
 
     const redirectToMainTour = () => {
         typeof window !== 'undefined' && router.push('/tours/main');
     }
 
-    const [url, socialThumbnailUrl] = getTourURLs(tour as string[]);
+    const [url, socialThumbnailUrl] = getTourURLs(tour as string[], mediaIndex);
 
     // Only redirect to main tour if tour is not found
     if (tour && !url) {
@@ -125,12 +104,10 @@ const Tour = () => {
         }
     }, [])
 
-    const tourName: string = tour && tour[0] ? tour[0].charAt(0).toUpperCase() + tour[0].toLowerCase().slice(1) : 'Main';
-    const description: string = `The immersive ${tourName} 3D tour brought to you by TheVECentre`;
     return (
         <div className=" w-screen" style={{ height: iframeHeight }}>
             <NextSeo
-                title={`${tourName} tour`}
+                title={title}
                 description={description}
                 openGraph={{
                     type: 'website',
@@ -162,18 +139,29 @@ const Tour = () => {
     )
 }
 
-// export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { tour: string[] } }) {
+    // If tour not found (fallback) default to main
+    const { title, description, subpaths }: ITour = Tours.find((tour) => tour.path === params.tour[0]) || Tours[0];
+    const mediaIndex: number = subpaths[params.tour[1]] || 1;
+    const props: IProps = { title, description, tour: params.tour, mediaIndex };
+    return { props };
+}
 
 export async function getStaticPaths() {
-    const paths = [];
-    Object.keys(Tours).forEach((name: string) => {
-        const tour = Tours[name];
+    const paths: { params: { tour: string[] } }[] = [];
+    Tours.forEach(({ path, subpaths }: ITour) => {
+        // Push index
+        paths.push({ params: { tour: [path] } });
 
-    })
+        // Push all subpaths
+        Object.keys(subpaths).forEach(subpath => {
+            paths.push({ params: { tour: [path, subpath] } });
+        });
+    });
 
     return {
-        paths: [],
-        fallback: false,
+        paths,
+        fallback: true,
     };
   }
 
