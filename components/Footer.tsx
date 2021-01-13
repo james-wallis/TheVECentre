@@ -9,6 +9,7 @@ const FooterGif = require('../images/vecfooterlogo.gif');
 
 const links: ILink[] = [
     // { text: 'FAQ', href: '/' },
+    { text: 'Tours', href: '/tours' },
     { text: 'Press Office', href: '/press-office' },
     { text: 'Privacy Policy', href: '/privacy-policy' },
     { text: 'Terms & Conditions', href: '/terms-and-conditions' },
