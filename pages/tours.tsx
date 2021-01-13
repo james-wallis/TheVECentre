@@ -19,7 +19,7 @@ interface IProps {
 
 const ToursPage = ({ tours }: IProps) => {
     return (
-    <Layout title="Tour Guide" description="How to navigate The VECentre's online exhibitions">
+    <Layout title="Tours" description="From here you can access any of the tours at TheVECentre">
         <MainHeading>
             Tours
         </MainHeading>
