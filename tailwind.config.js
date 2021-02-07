@@ -39,7 +39,10 @@ module.exports = {
         },
         zIndex: {
           'top': '100',
-        }
+        },
+        backgroundImage: theme => ({
+          'guestbook': "url('/images/guestbookimage.png')",
+         })
       },
     },
     variants: {

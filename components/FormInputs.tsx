@@ -75,9 +75,9 @@ export const SubmitButton = ({ disabled }: { disabled: boolean }) => (
     </div>
 )
 
-export const Recaptcha = ({ onChange }: { onChange: (captchaValue: string | null) => void }) => (
+export const Recaptcha = ({ onChange, className = '' }: { onChange: (captchaValue: string | null) => void, className?: string }) => (
     // The ReCAPTCHA has a set height and width and two divs which can't be styled. Use style to allow it to be centered
-    <div className="py-10" style={{ width: 304, height: 78, margin: '0 auto' }}>
+    <div className={className} style={{ width: 304, height: 78, margin: '0 auto' }}>
         <ReCAPTCHA sitekey={process.env.CAPTCHA_SITE_KEY as string} onChange={onChange} />
     </div>
 )
