@@ -97,7 +97,7 @@ const ContactPage = () => {
                 {showCaptcha
                     ? <>
                         <p className="pb-5">Thanks for contacting TheVECentre, we just need to make sure you're not a robot!</p>
-                        <Recaptcha onChange={sendEmail} />
+                        <Recaptcha onChange={sendEmail} className="py-10" />
                     </> : <>
                         {sending
                             ? <Spinner hidden={!sending} />
