@@ -28,12 +28,35 @@ const GuestBookPage = () => {
             })
     }, []);
 
+    const resetPage = () => {
+        if (process.browser) {
+            setPage(-2);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', resetPage);
+        return () => window.removeEventListener('resize', resetPage);
+    }, []);
+
+    const incrementAmount = process.browser && window && window.innerWidth < 768 ? 1 : 2;
+    const changePage = (increment: boolean) => {
+
+        if (increment) {
+            setPage(page + incrementAmount);
+        } else {
+            setPage(page - incrementAmount);
+        }
+    }
+
+    console.log(entries, page);
+
     return (
-        <div className="text-white bg-guestbook w-screen h-screen bg-cover bg-center flex flex-row relative">
-            {page === -2 ? (
+        <div className="bg-guestbook-mobile md:bg-guestbook w-screen h-screen bg-cover bg-center flex flex-col md:flex-row relative items-center">
+            {page < 0 ? (
                 <>
-                    <FirstPage />
-                    <FormPage rightSide />
+                    {page === -2 && <FirstPage />}
+                    {(page === -1 || incrementAmount === 2) && <FormPage rightSide={page !== -1} />}
                 </>
             ) : (
                 <>
@@ -50,14 +73,14 @@ const GuestBookPage = () => {
                 </>
             )}
             {page > -2 && (
-                <button className="absolute text-gray-600 text-6xl left-14 bottom-8 flex flex-row items-center" onClick={() => setPage(page - 2)}>
+                <button className="absolute text-gray-600 text-3xl md:text-6xl left-3 md:left-14 bottom-8 flex flex-row items-center" onClick={() => changePage(false)}>
                     <GoTriangleLeft />
-                    <span className="ml-2 text-2xl pr-2">Previous</span>
+                    <span className="ml-2 text-2xl pl-1 md:pr-2">Previous</span>
                 </button>
             )}
-            {(page === -2 || page + 2 < entries.length) && (
-                <button className="absolute text-gray-600 text-6xl right-14 bottom-8 flex flex-row items-center" onClick={() => setPage(page + 2)}>
-                    <span className="mr-2 text-2xl pl-2">Next</span>
+            {(page === (incrementAmount * -1) || page + incrementAmount < entries.length) && (
+                <button className="absolute text-gray-600 text-3xl md:text-6xl right-3 md:right-14 bottom-8 flex flex-row items-center" onClick={() => changePage(true)}>
+                    <span className="mr-2 text-2xl pl-1 md:pl-2">Next</span>
                     <GoTriangleRight />
                 </button>
             )}

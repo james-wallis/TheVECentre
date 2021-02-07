@@ -7,10 +7,10 @@ interface IProps {
 
 const Section = ({ children, rightSide = false }: IProps) => (
     <div className={`
-        h-full w-full sm:w-1/2 py-20
+        h-full w-3/4 md:w-1/2 py-20
         ${rightSide
-            ? 'md:pr-12 lg:pr-24 xl:pr-28 md:pl-28 lg:pl-32'
-            : 'md:pl-12 lg:pl-24 xl:pl-28 md:pr-28 lg:pr-32'
+            ? 'hidden md:block md:pr-8 lg:pr-24 xl:pr-28 md:pl-20 lg:pl-32'
+            : 'md:pl-8 lg:pl-24 xl:pl-28 md:pr-20 lg:pr-32'
         }
     `}>
         <div className="h-full w-full">
