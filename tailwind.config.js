@@ -42,6 +42,7 @@ module.exports = {
         },
         backgroundImage: theme => ({
           'guestbook': "url('/images/guestbookimage.png')",
+          'guestbook-mobile': "url('/images/guestbookimage-mobile.png')",
          })
       },
     },

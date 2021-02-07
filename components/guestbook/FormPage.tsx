@@ -50,13 +50,12 @@ const FormPage = ({ rightSide = false }: IProps) => {
         <Section rightSide={rightSide}>
             <div className="flex flex-col h-full w-full">
                 <GuestBookPageTitle />
-                <form onSubmit={submit} className="text-xl lg:text-2xl mt-8 text-gray-500 font-light h-full flex flex-col justify-items-start items-center">
+                <form onSubmit={submit} className="text-base lg:text-xl mt-8 text-gray-500 font-light h-full flex flex-col justify-items-start items-center">
                     <input
                         className="
                             appearance-none block w-full text-gray-700 leading-tight
                             focus:outline-none focus:bg-white focus:border-gray-400
-                            p-5 bg-white my-4 border border-gray-300
-                            text-lg lg:text-xl
+                            p-3 lg:p-5 bg-white my-3 lg:my-4 border border-gray-300
                         "
                         type="text"
                         placeholder="Name"
@@ -66,7 +65,7 @@ const FormPage = ({ rightSide = false }: IProps) => {
                     <textarea
                         className="
                             block w-full text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-400 h-48
-                            text-lg lg:text-xl p-5 bg-white my-4 border border-gray-300 flex-1 flex-grow
+                            p-3 lg:p-5 bg-white my-3 lg:my-4 md:my-4 border border-gray-300 flex-1 flex-grow
                         "
                         placeholder="Message"
                         onChange={(e) => setMessage(e.target.value)}
@@ -76,8 +75,9 @@ const FormPage = ({ rightSide = false }: IProps) => {
                         <button
                             className="
                                 bg-white text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-400
-                                border border-gray-300 inline-block my-4 py-5 transition-colors ease-in duration-150
+                                border border-gray-300 inline-block transition-colors ease-in duration-150
                                 w-full md:w-2/3 xl:w-1/2 disabled:opacity-50 disabled:bg-gray-200
+                                py-3 lg:py-5 my-3 lg:my-4
                             "
                             disabled={!name || !message}
                         >

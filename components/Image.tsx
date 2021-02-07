@@ -16,7 +16,6 @@ export const Image = ({ src, alt, className }: IProps) => {
 }
 
 export const ResponsiveImage = ({ src: responsiveImage, alt, className }: IProps) => {
-    // console.log(responsiveImage);
     return (
     <picture className="w-full h-full">
         <img srcSet={responsiveImage.srcSet} sizes="(min-width: 780px) 100vw, 79.35vw" src={responsiveImage.src} alt={alt} className={className} />
