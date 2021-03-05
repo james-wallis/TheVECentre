@@ -1,5 +1,3 @@
-import { ITour } from ".";
-
 interface ITourUrls {
     baseUrl: string;
     indexHtml: string;
