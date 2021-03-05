@@ -31,7 +31,8 @@ const tours: ITour[] = [
         path: 'artistjodi',
         subpaths: {
             gallery: 1,
-            studio: 62
+            studio: 49,
+            courtyard: 4,
         }
     }
 ];

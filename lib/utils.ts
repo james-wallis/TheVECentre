@@ -18,7 +18,7 @@ export function getTourURLs(tour: string[], mediaIndex: number): string[] {
             urlPrefix = `${AWS_PREFIX}/christmas`;
             break;
         case 'artistjodi':
-            urlPrefix = `${AWS_PREFIX}/gallery`;
+            urlPrefix = `${AWS_PREFIX}/theoldmillhousegallery`;
             break;
     }
 
