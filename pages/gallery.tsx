@@ -23,7 +23,7 @@ const GalleryPage = ({ videos }: PageProps) => {
             </TextBlock>
             <VideoGallery videos={videos} />
             <SketchFabAsset modelId="f2216c89ba924ac58f68f76e27344745" />
-    </Layout>
+        </Layout>
     )
 }
 

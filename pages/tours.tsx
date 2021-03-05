@@ -35,7 +35,7 @@ const ToursPage = ({ tours }: IProps) => {
                             <img
                                 src={socialImageURL}
                                 alt={`Screenshot of the ${title} tour`}
-                                className="mt-8 mb-20 xl:px-36 px-2 md:px-12 lg:px-10 xl:px-14 max-h-tgi"
+                                className="mt-8 mb-20 px-2 md:px-12 lg:px-10 xl:px-14 max-h-tgi"
                             />
                         </a>
                     </Link>
@@ -47,12 +47,13 @@ const ToursPage = ({ tours }: IProps) => {
 
 export async function getStaticProps() {
     const props: IProps = { tours: Tours.map(tour => {
-        const [, socialImageURL] = getTourURLs([tour.path, ''], 1);
+        const { socialThumbnail } = getTourURLs([tour.path, ''], 1);
+
         return {
             title: tour.title,
             description: tour.description,
             path: tour.path,
-            socialImageURL,
+            socialImageURL: socialThumbnail,
         }
     }) };
     return { props };

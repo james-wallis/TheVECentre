@@ -2,8 +2,8 @@ import { ITour } from './interfaces';
 
 const tours: ITour[] = [
     {
-        title: 'ArtistJodi\'s gallery',
-        description: 'See all of ArtistJodi\'s work in her bespoke 3D gallery.',
+        title: 'The Old Millhouse Gallery',
+        description: 'Virtual gallery tour featuring art and design by British ArtistJodi.',
         path: 'artistjodi',
         subpaths: {
             gallery: 1,

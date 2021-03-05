@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 import { NextRouter, useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { ITour } from '../../interfaces';
@@ -48,7 +49,7 @@ const Tour = ({ title, description, tour, mediaIndex }: IProps) => {
         typeof window !== 'undefined' && router.push('/tours/main');
     }
 
-    const [url, socialThumbnailUrl] = getTourURLs(tour as string[], mediaIndex);
+    const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(tour as string[], mediaIndex);
 
     // Only redirect to main tour if tour is not found
     if (tour && !url) {
@@ -73,7 +74,18 @@ const Tour = ({ title, description, tour, mediaIndex }: IProps) => {
     }, [])
 
     return (
-        <div className=" w-screen" style={{ height: iframeHeight }}>
+        <div className="w-screen" style={{ height: iframeHeight }}>
+            <Head>
+                <link rel="shortcut icon" href={favicon} />
+                <link rel="icon" sizes="48x48 32x32 16x16" href={favicon} />
+                <link rel="apple-touch-icon" type="image/png" sizes="180x180" href={`${miscDir}/icon180.png`} />
+                <link rel="icon" type="image/png" sizes="16x16" href={`${miscDir}/icon16.png`} />
+                <link rel="icon" type="image/png" sizes="32x32" href={`${miscDir}/icon32.png`} />
+                <link rel="icon" type="image/png" sizes="192x192" href={`${miscDir}/icon192.png`} />
+                <link rel="manifest" href={manifest} />
+                <meta name="msapplication-TileColor" content="#333333" />
+	            <meta name="msapplication-config" content={browserConfig} />
+            </Head>
             <NextSeo
                 title={title}
                 description={description}
@@ -85,9 +97,9 @@ const Tour = ({ title, description, tour, mediaIndex }: IProps) => {
                     site_name: 'The VECentre',
                     images: [
                         {
-                          url: socialThumbnailUrl,
-                          width: 1196,
-                          height: 627,
+                          url: socialThumbnail,
+                          width: 1200,
+                          height: 630,
                           alt: 'Tour Icon',
                         },
                     ],
