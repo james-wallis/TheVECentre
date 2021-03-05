@@ -25,7 +25,7 @@ export function getTourURLs(tour: string[], mediaIndex: number): ITourUrls {
     }
 
     if (!urlPrefix) {
-        throw new Error('Unknown tour');
+        throw new Error(`Unknown tour: ${tour}`);
     }
 
     const indexHtml: string = mediaIndex > 0 ? `${urlPrefix}/index.htm?media-index=${mediaIndex}` : `${urlPrefix}/index.htm`;
