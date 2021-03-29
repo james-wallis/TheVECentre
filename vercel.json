@@ -2,6 +2,6 @@
     "redirects": [
         { "source": "/github", "destination": "https://github.com/james-wallis/TheVECentre" },
         { "source": "/api/tours/:tour*", "destination": "/tours/:tour*" },
-        { "source": "/tours/artistjodi/*", "destination": "https://artistjodi.com/tour" }
+        { "source": "/tours/artistjodi", "destination": "https://artistjodi.com/tour" }
     ]
 }
