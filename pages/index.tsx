@@ -3,7 +3,7 @@ import React from 'react'
 import HeroImage from '../components/HeroImage'
 import { EnterTourIcon, RemoteIcon } from '../components/Icons'
 import Layout from '../components/Layout'
-import { Italic, MainHeading, TextBlock, Date, Row } from '../components/PageElements'
+import { Italic, MainHeading, TextBlock, Row } from '../components/PageElements'
 import VideoPlayer from '../components/VideoPlayer'
 
 const christmasVideoId: string = 'IXU6adtXfMQ';
