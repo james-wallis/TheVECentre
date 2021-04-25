@@ -32,7 +32,7 @@ const takeMeThereIcon = (dark: boolean) => {
 }
 
 export const EnterTourIcon = ({ href, dark = false, children }: IEnterTourProps) => (
-    <a href={href} className="flex flex-col w-48 md:w-56 lg:w-64 xl:w-72 items-center m-4">
+    <a href={href} className="flex flex-col w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/5 2xl:w-1/6 items-center m-4">
         <Image className="pb-4 w-3/5" src={EnterTourImage} alt="enter tour icon" />
         {
             children

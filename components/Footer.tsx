@@ -16,9 +16,9 @@ const links: ILink[] = [
 ]
 
 const Footer = () => (
-    <footer className="bg-footer w-screen flex flex-col justify-between text-white bottom-0 p-2 xl:text-xl text-lg mt-12 lg:mt-16 z-40">
+    <footer className="bg-footer w-screen flex flex-col justify-between text-white bottom-0 p-4 xl:text-xl text-base md:text-lg mt-12 lg:mt-16 z-40">
         <Row className='lg:justify-between my-0'>
-            <div className="flex items-center lg:items-end flex-col lg:flex-row">
+            <div className="flex items-center lg:items-end flex-col lg:flex-row text-lg xl:text-xl">
                 <div className="text-center">
                     <Image className="w-48" src={FooterGif} alt="360 virtual tour logo" />
                     <p>TOURS</p>
@@ -34,10 +34,10 @@ const Footer = () => (
                 </div>
             </div>
             <div className="text-center lg:text-right md:mx-12 lg:mx-0 lg:mr-12 flex flex-col justify-between mt-5 md:mb-2 lg:my-0 lg:mt-10 lg:w-3/5">
-                <p className="text-3xl my-2 lg:my-0">
+                <p className="text-2xl md:text-3xl my-2 lg:my-0">
                     Call <TelephoneLink />
                 </p>
-                <p className="text-3xl my-2 lg:my-0">
+                <p className="text-2xl md:text-3xl my-2 lg:my-0">
                     <EmailLink />
                 </p>
                 <p className="my-2 lg:my-0">
@@ -49,7 +49,7 @@ const Footer = () => (
             </div>
         </Row>
         <Row>
-            <div className="lg:ml-4 text-base text-center lg:text-left">
+            <div className="lg:ml-4 text-sm md:text-base text-center lg:text-left">
                 <p>&copy;2020 Designed by Inner Sanctum Design, <LinkToExternalSite href="https://wallis.dev?ref=vec">Website built by James.</LinkToExternalSite></p>
                 <p>All rights reserved.</p>
             </div>

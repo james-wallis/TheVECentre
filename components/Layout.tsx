@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
-import ScrollToViewTag from './ScrollToViewTag'
 import { NextSeo } from 'next-seo'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -40,7 +39,6 @@ const Layout = ({ children, title, description }: Props) => (
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
-            <ScrollToViewTag />
             <Header />
             <motion.main initial="initial" animate="enter" exit="exit" variants={postVariants} className="xl:pt-header-xl lg:pt-header-lg pt-header w-screen flex flex-col justify-center items-center">
                 {children}

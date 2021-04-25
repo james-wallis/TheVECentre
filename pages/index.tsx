@@ -16,9 +16,9 @@ const IndexPage = () => (
         <MainHeading>
             <Italic>Christmas@</Italic> TheVECentre
         </MainHeading>
-        <Date>
+        {/* <Date>
             14 December - 7 January
-        </Date>
+        </Date> */}
         <EnterTourIcon href="/tours/christmas" dark />
         <TextBlock header={{ children: <Italic>Christmas Market</Italic> }}>
             <p>Immerse yourself in Christmas by walking around our interactive snowy log cabins.</p>
@@ -31,7 +31,7 @@ const IndexPage = () => (
             <p>Watch instruction videos, download PDF instructions and templates to bring the festivities into your home.</p>
             <p>Fun for every age!</p>
         </TextBlock>
-        <Row className="items-center">
+        <Row className="items-center md:justify-center">
             <VideoPlayer videoId={craft1} />
             <EnterTourIcon href="/tours/christmas">
                 Teleport straight to the fun stuff!
