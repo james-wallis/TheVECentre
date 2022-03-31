@@ -2,10 +2,10 @@ import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/do
 
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
-  }
+  // static async getInitialProps(ctx: DocumentContext) {
+  //   const initialProps = await Document.getInitialProps(ctx)
+  //   return { ...initialProps }
+  // }
 
   render() {
     const GA_TRACKING_ID = process.env.GTAG;

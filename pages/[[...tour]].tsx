@@ -2,10 +2,10 @@ import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import { NextRouter, useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { ITour } from '../../interfaces';
-import { getTourURLs } from '../../lib/utils';
+import { ITour } from '../interfaces';
+import { getTourURLs } from '../lib/utils';
 
-import Tours from '../../tours';
+import Tours from '../tours';
 
 async function shouldRedirect(): Promise<boolean> {
     // const ua = (function() { return window.navigator.userAgent.toLowerCase(); })();
@@ -39,17 +39,18 @@ interface IProps {
     title: string;
     description: string;
     tour: string[];
-    mediaIndex: number;
 }
 
-const Tour = ({ title, description, tour, mediaIndex }: IProps) => {
+const Tour = (props: IProps) => {
+    const { title, description, tour } = props;
+
     const router = useRouter();
 
     const redirectToMainTour = () => {
-        typeof window !== 'undefined' && router.push('/tours/main');
+        typeof window !== 'undefined' && router.push('/main');
     }
 
-    const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(tour as string[], mediaIndex);
+    const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(tour as string[]);
 
     // Only redirect to main tour if tour is not found
     if (tour && !url) {
@@ -121,22 +122,16 @@ const Tour = ({ title, description, tour, mediaIndex }: IProps) => {
 
 export async function getStaticProps({ params }: { params: { tour: string[] } }) {
     // If tour not found (fallback) default to main
-    const { title, description, subpaths }: ITour = Tours.find((tour) => tour.path === params.tour[0]) || Tours[0];
-    const mediaIndex: number = subpaths[params.tour[1]] || 1;
-    const props: IProps = { title, description, tour: params.tour, mediaIndex };
+    const { title, description, path }: ITour = params && params.tour ? Tours.find((tour) => tour.path === params.tour[0]) || Tours[0] : Tours[0];
+    const props: IProps = { title, description, tour: params?.tour || [path] };
     return { props };
 }
 
 export async function getStaticPaths() {
     const paths: { params: { tour: string[] } }[] = [];
-    Tours.forEach(({ path, subpaths }: ITour) => {
+    Tours.forEach(({ path }: ITour) => {
         // Push index
         paths.push({ params: { tour: [path] } });
-
-        // Push all subpaths
-        Object.keys(subpaths).forEach(subpath => {
-            paths.push({ params: { tour: [path, subpath] } });
-        });
     });
 
     return {

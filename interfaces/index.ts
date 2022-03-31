@@ -38,7 +38,4 @@ export interface ITour {
     title: string,
     description: string
     path: string
-    subpaths: {
-        [key: string]: number
-    }
 }

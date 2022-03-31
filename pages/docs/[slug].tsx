@@ -1,8 +1,8 @@
 import { GetStaticPaths } from 'next';
 import React from 'react'
-import Layout from '../components/Layout'
-import PrintMarkdown from '../components/PrintMarkdown';
-import { getDynamicPageFiles, getPageBySlug } from '../utils/fileSystem'
+import Layout from '../../components/Layout'
+import PrintMarkdown from '../../components/PrintMarkdown';
+import { getDynamicPageFiles, getPageBySlug } from '../../utils/fileSystem'
 
 interface IStaticProps {
     params: {
