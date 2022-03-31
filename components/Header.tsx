@@ -2,8 +2,6 @@ import { useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { WebpJpegImage } from './Image'
 import Navigation from './Navigation'
-import { NavigationHamburger } from './Icons'
-import SocialIcons from './SocialIcons'
 
 const HeaderLogo = require('../images/Header-logo@2x.jpg?resize')
 const HeaderLogoWebp = require('../images/Header-logo@2x.jpg?webp')
@@ -36,14 +34,12 @@ const Header = () => {
                     <span className="inline">Exhibition Centre</span>
                 </h1>
                 <Navigation isOpen={isOpen} closeMenu={() => setOpen(false)} />
-                <NavigationHamburger onClick={() => setOpen(true)}/>
             </div>
             <div className={`flex justify-between item-center px-4 pl-8 lg:px-12 w-100 relative z-30 ${headerBottomHeight}`}>
                 <div className="flex h-full max-h-full">
                     <WebpJpegImage className="h-full md:h-auto max-h-full object-cover" src={HeaderLogo} webp={HeaderLogoWebp} alt="The VECentre Logo" />
                     <WebpJpegImage containerClassName="hidden lg:block" className="max-h-full object-cover hidden lg:block" src={Header360} webp={Header360Webp} alt="360 logo" />
                 </div>
-                <SocialIcons />
             </div>
         </header>
     )

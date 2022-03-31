@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import ContactForm from '../components/ContactForm'
 import { EmailLink, TelephoneLink } from '../components/ExternalLinks'
-import HeroImage from '../components/HeroImage'
 import Layout from '../components/Layout'
 import Modal from '../components/Modal'
 import { MainHeading, TextBlock } from '../components/PageElements'
 import emailjs from 'emailjs-com';
 import { IContactFormDetails } from '../interfaces'
 import { Recaptcha } from '../components/FormInputs'
-import { Spinner } from '../components/Icons'
 
 const constructEmailJSResponseMessage = (isError: boolean, name: string, email: string, company: string, message: string) => {
     if (isError) {
@@ -73,7 +71,7 @@ const ContactPage = () => {
 
     return (
         <Layout title="Contact" description="Contact page for The VECentre. Call, email or use the built-in contact form">
-            <HeroImage src='Mainpic-exhibitors@2x.jpg' icon />
+            {/* <HeroImage src='Mainpic-exhibitors@2x.jpg' icon /> */}
             <MainHeading thin uppercase>
                 <span className="block mt-8 mb-4">There is no address</span>
                 The VEC is virtual
@@ -100,7 +98,7 @@ const ContactPage = () => {
                         <Recaptcha onChange={sendEmail} className="py-10" />
                     </> : <>
                         {sending
-                            ? <Spinner hidden={!sending} />
+                            ? <></>
                             :
                             <div className="text-left overflow-y-scroll">
                                 {constructEmailJSResponseMessage(emailError, name, email, company, message)}

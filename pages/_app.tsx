@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
                 type: 'website',
                 locale: 'en_IE',
                 url,
-                description: 'The VECentre - The perfect venue to host your virtual event or trade show.',
+                description: 'The VECentre - Virtual exhibition for NFTs.',
                 site_name: 'The VECentre',
                 images: [
                     {
