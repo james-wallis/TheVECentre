@@ -1,3 +1,5 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
+import DefaultErrorPage from 'next/error'
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import { NextRouter, useRouter } from 'next/router';
@@ -35,27 +37,21 @@ async function redirectIfMobile(router: NextRouter, url: string) {
     }
 }
 
-interface IProps {
-    title: string;
-    description: string;
-    tour: string[];
-}
-
-const Tour = (props: IProps) => {
-    const { title, description, tour } = props;
+const Tour = ({ tour }: { tour: ITour }) => {
+    // If tour isn't given, show 404 page
+    if (!tour) {
+        return <>
+            <Head>
+                <meta name="robots" content="noindex" />
+            </Head>
+            <DefaultErrorPage statusCode={404} />
+        </>
+    }
 
     const router = useRouter();
-
-    const redirectToMainTour = () => {
-        typeof window !== 'undefined' && router.push('/main');
-    }
-
-    const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(tour as string[]);
-
-    // Only redirect to main tour if tour is not found
-    if (tour && !url) {
-        redirectToMainTour();
-    }
+    const slug = router.query.slug;
+    const { title, description } = tour;
+    const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(slug as string[]);
 
     useEffect(() => {
         redirectIfMobile(router, url);
@@ -120,24 +116,36 @@ const Tour = (props: IProps) => {
     )
 }
 
-export async function getStaticProps({ params }: { params: { tour: string[] } }) {
-    // If tour not found (fallback) default to main
-    const { title, description, path }: ITour = params && params.tour ? Tours.find((tour) => tour.path === params.tour[0]) || Tours[0] : Tours[0];
-    const props: IProps = { title, description, tour: params?.tour || [path] };
-    return { props };
-}
+export const getStaticPaths: GetStaticPaths = async () => {
+    const paths = Tours.map((tour: ITour) => ({
+        params: {
+            slug: [tour.path],
+        }
+    }));
 
-export async function getStaticPaths() {
-    const paths: { params: { tour: string[] } }[] = [];
-    Tours.forEach(({ path }: ITour) => {
-        // Push index
-        paths.push({ params: { tour: [path] } });
+    paths.push({
+        params: {
+            slug: []
+        }
     });
 
     return {
+        // Only `/`, `/main` and `/spring` are generated at build time
         paths,
-        fallback: false,
-    };
-  }
+        // Enable statically generating additional pages, use blocking so no loading page
+        fallback: "blocking",
+    }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const slug = params?.slug as string[];
+    // Default to main tour when a slug isn't given (home page)
+    const tourPath = slug && slug.length > 0 ? slug[0] : "main";
+    const tour = Tours.find((tour) => tour.path === tourPath) || false;
+    return {
+        props: { tour },
+        // revalidate: 1,
+    }
+}
 
 export default Tour;
