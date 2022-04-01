@@ -6,10 +6,11 @@ const tours: ITour[] = [
         description: 'The immersive 3D exhibition brought to you by TheVECentre.',
         path: 'main',
     },
+    // Some links in the tour are incorrect so display the same tour for main and home
     {
         title: 'The VECentre',
         description: 'The immersive 3D exhibition brought to you by TheVECentre.',
-        path: '',
+        path: 'home',
     },
     {
         title: 'Spring',
