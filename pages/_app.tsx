@@ -4,10 +4,14 @@ import type { AppProps } from 'next/app'
 import '../styles/index.css'
 import Navigation from '../components/Navigation';
 import { Hamburger } from '../components/NavigationIcons';
+import { useFullViewHeight } from '../hooks/useFullViewHeight';
+import tours from "../tours";
 
-function MyApp({ Component, pageProps, router }: AppProps) {
-    const url: string = `https://thevecentre.com${router.route}`;
+function MyApp({ Component, pageProps, router: { asPath } }: AppProps) {
+    const url: string = `https://thevecentre.com${asPath}`;
     const [open, setOpen] = useState(false);
+    const [fullViewHeight] = useFullViewHeight();
+    const setContainerHeight = asPath === "/" || tours.find(({ path }) => asPath.startsWith(`/${path}`));
     return <>
         <DefaultSeo
             titleTemplate='%s @ The VECentre'
@@ -29,7 +33,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             canonical={url}
         />
         <Hamburger onClick={() => setOpen(true)} />
-        <div className="h-screen flex flex-col">
+        <div
+            className="h-screen flex flex-col"
+            style={setContainerHeight && { height: fullViewHeight }}
+        >
             <Navigation isOpen={open} closeMenu={() => setOpen(false)} />
             <Component {...pageProps} canonical={url} />
         </div>
