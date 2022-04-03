@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DefaultSeo } from 'next-seo'
 import type { AppProps } from 'next/app'
 import '../styles/index.css'
+import Navigation from '../components/Navigation';
+import { Hamburger } from '../components/NavigationIcons';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
     const url: string = `https://thevecentre.com${router.route}`;
+    const [open, setOpen] = useState(false);
     return <>
         <DefaultSeo
             titleTemplate='%s @ The VECentre'
@@ -25,7 +28,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             }}
             canonical={url}
         />
-        <Component {...pageProps} canonical={url} />
+        <Hamburger onClick={() => setOpen(true)} />
+        <div className="h-screen flex flex-col">
+            <Navigation isOpen={open} closeMenu={() => setOpen(false)} />
+            <Component {...pageProps} canonical={url} />
+        </div>
     </>
 }
 

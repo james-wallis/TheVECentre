@@ -5,7 +5,7 @@ module.exports = {
       extend: {
         fontFamily: {
           'cursive': ['SnellRoundhand', 'cursive'],
-          'default': ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji'],
+          'default': ['Helvetica Neue', 'Helvetica', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji'],
         },
         colors: {
           'accent-1': '#333',
@@ -13,6 +13,7 @@ module.exports = {
           'footer': '#000013',
           'header-blue': '#5F707B',
           'navigation-gray': '#515151',
+          'mint': '#27B499'
         },
         spacing: {
           'header': '10rem',

@@ -1,23 +1,25 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 import { ILink } from '../interfaces'
 import { motion } from 'framer-motion'
 import useTailwindBreakpoint from '../hooks/useTailwindBreakpoint'
 
+import logo from '../images/logo.png'
+import SocialIcons from './SocialIcons'
+import { Cross } from './NavigationIcons'
+
 interface IProps {
     isOpen: boolean
-    closeMenu: any
+    closeMenu: () => void
 }
 
 const links: ILink[] = [
     { text: 'Home', href: '/' },
-    { text: 'Tour Guide', href: '/tour-guide' },
-    { text: 'Gallery', href: '/gallery' },
-    { text: 'Exhibitors', href: '/exhibitors' },
-    { text: 'Venue Hire', href: '/hire' },
-    { text: 'About The VECentre', href: '/about' },
-    { text: 'Contact', href: '/contact' },
+    { text: 'Spring', href: '/spring' },
+    // { text: 'About', href: '/about' },
+    // { text: 'Contact', href: '/contact' },
 ]
 
 const variants = {
@@ -42,25 +44,48 @@ const transition = {
     delay: 0,
 };
 
-const Navigation = ({ isOpen }: IProps) => {
-    const { pathname } = useRouter();
+const Navigation = ({ isOpen, closeMenu }: IProps) => {
+    const { asPath } = useRouter();
     const twBreakpoint = useTailwindBreakpoint();
-    const isMobileNav = ['', 'sm', 'md'].includes(twBreakpoint);
-    const activeClasses: string = 'border-dark-blue border-opacity-30 ';
+    const isMobileNav = ['', 'sm'].includes(twBreakpoint);
+    const activeClasses: string = 'text-mint';
+    const logoSize = isMobileNav ? 150 : 80;
     return (
         <motion.nav
             initial={isMobileNav ? 'closed' : 'open'}
             animate={!isOpen && isMobileNav ? 'closed' : 'open'}
             variants={isMobileNav ? variants : { open: variants.open }}
             transition={transition}
-            className={`hidden fixed lg:flex lg:mr-8 lg:w-auto lg:h-auto lg:relative lg:flex-row w-screen h-screen z-top inset-0 bg-white flex-col justify-center items-center`}
+            className={`
+                z-top inset-0 bg-black font-default md:px-10 lg:px-14
+                hidden fixed w-screen h-screen flex-col justify-center items-center
+                md:flex md:w-auto md:h-24 md:relative md:flex-row
+                py-10 md:py-0
+            `}
         >
-            {/* <NavigationCross onClick={closeMenu} /> */}
-            {links.map(({ text, href }) => (
-                <Link href={href} key={text}>
-                    <a className={`lg:text-base text-2xl 2xl:mx-6 xl:mx-4 lg:mx-3 my-3 lg:my-0 text-center text-navigation-gray border-b-4 border-transparent ${pathname === href && activeClasses}`}>{text}</a>
-                </Link>
-            ))}
+            <Cross onClick={closeMenu} />
+            <Image
+                src={logo}
+                alt="The VECentre logo"
+                width={logoSize}
+                height={logoSize}
+            />
+            <h1 className={`text-white text-4xl md:ml-4 lg:ml-6 font-medium mt-6 md:mt-0`}>The VECentre</h1>
+            <div className="flex-1 flex flex-col md:flex-row justify-center md:justify-end items-center mx-4">
+                {links.map(({ text, href }) => (
+                    <Link href={href} key={text}>
+                        <a className={`
+                                md:text-base text-2xl xl:mx-4 md:mx-3 my-2 md:my-0 text-center
+                                text-white uppercase font-semibold hover:text-mint transition-colors
+                                ${(href === "/" ? (asPath === "/" || asPath.startsWith("/home") || asPath.startsWith("/main")) : asPath.startsWith(href)) && activeClasses}
+                            `}
+                        >
+                            {text}
+                        </a>
+                    </Link>
+                ))}
+            </div>
+            <SocialIcons />
         </motion.nav>
     )
 }

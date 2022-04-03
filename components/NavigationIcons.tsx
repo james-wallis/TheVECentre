@@ -6,7 +6,7 @@ export const Hamburger = ({ onClick }: IProps) => {
     const hamburger = [];
     for (let i = 0; i < 3; i += 1) {
         hamburger.push(
-          <span key={`hamburger-${i}`} className="bg-navigation-gray w-8 h-1 my-1" />,
+          <span key={`hamburger-${i}`} className="bg-mint w-5 h-0.5 my-0.5 rounded" />,
         );
     }
 
@@ -15,7 +15,7 @@ export const Hamburger = ({ onClick }: IProps) => {
           onClick={onClick}
           role="button"
           tabIndex={0}
-          className="lg:hidden z-40 h-14 w-14 top-0 right-0 m-4 bg-opacity-nav bg-white flex flex-col justify-center items-center outline-none"
+          className="fixed md:hidden z-40 h-12 w-12 top-0 left-0 m-4 bg-opacity-nav bg-black flex flex-col justify-center items-center outline-none rounded-full border-2 border-mint"
         >
             {hamburger}
         </div>
@@ -24,9 +24,9 @@ export const Hamburger = ({ onClick }: IProps) => {
 
 export const Cross = ({ onClick }: IProps) => {
     return (
-        <div role="button" tabIndex={0} onClick={onClick} className="fixed lg:hidden z-50 h-14 w-14 top-0 right-0 m-4 bg-opacity-nav bg-white flex flex-col justify-center items-center outline-none">
-          <span className="bg-navigation-gray w-10 h-1 transform rotate-45" />
-          <span className="bg-navigation-gray w-10 h-1 transform -rotate-45" style={{ marginTop: '-3px' }} />
+        <div role="button" tabIndex={0} onClick={onClick} className="fixed md:hidden z-50 h-12 w-12 top-0 left-0 m-4 bg-opacity-nav bg-black flex flex-col justify-center items-center outline-none">
+          <span className="bg-white w-10 h-1 transform rotate-45" />
+          <span className="bg-white w-10 h-1 transform -rotate-45" style={{ marginTop: '-3px' }} />
         </div>
     );
 }
