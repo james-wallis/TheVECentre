@@ -58,7 +58,7 @@ const Navigation = ({ isOpen, closeMenu }: IProps) => {
             transition={transition}
             className={`
                 z-top inset-0 bg-black font-default md:px-10 lg:px-14
-                hidden fixed w-screen h-screen flex-col justify-center items-center
+                hidden fixed w-screen h-full flex-col justify-center items-center
                 md:flex md:w-auto md:h-24 md:relative md:flex-row
                 py-10 md:py-0
             `}
