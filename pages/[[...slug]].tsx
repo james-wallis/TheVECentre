@@ -2,8 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import DefaultErrorPage from 'next/error'
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
-import { NextRouter, useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { ITour } from '../interfaces';
 import { getTourURLs } from '../lib/utils';
 
@@ -11,19 +10,6 @@ import Tours from '../tours';
 
 const Tour = ({ tour }: { tour: ITour }) => {
     const router = useRouter();
-
-    const windowSizeChanged = () => {
-        typeof window !== 'undefined' && setIframeHeight(`${window.innerHeight}px`);
-    }
-
-    const [iframeHeight, setIframeHeight] = useState('100vh');
-    useEffect(() => {
-        window.addEventListener('resize', windowSizeChanged);
-        windowSizeChanged();
-        return () => {
-            window.removeEventListener('resize', windowSizeChanged)
-        }
-    }, [])
 
     // If tour isn't given, show 404 page
     if (!tour) {
@@ -40,7 +26,9 @@ const Tour = ({ tour }: { tour: ITour }) => {
     const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(slug as string[]);
 
     return (
-        <div className="w-screen" style={{ height: iframeHeight }}>
+        <div
+            className="flex-1"
+        >
             <Head>
                 <link rel="shortcut icon" href={favicon} />
                 <link rel="icon" sizes="48x48 32x32 16x16" href={favicon} />

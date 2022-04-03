@@ -1,30 +1,28 @@
-import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import { IconType } from 'react-icons';
+import { FaInstagram, FaTwitter } from 'react-icons/fa';
 import { RiFacebookBoxFill } from 'react-icons/ri';
 import { LinkToExternalSite } from './ExternalLinks';
 
-const icons: any[] = [
+const icons: { Icon: IconType, href: string }[] = [
     {
-        id: 1,
+        Icon: FaTwitter,
+        href: 'https://twitter.com/TheVECentre',
+    },
+    {
         Icon: RiFacebookBoxFill,
         href: 'https://www.facebook.com/thevecentre',
     },
     {
-        id: 2,
         Icon: FaInstagram,
         href: 'https://www.instagram.com/thevecentre',
-    },
-    {
-        id: 3,
-        Icon: FaYoutube,
-        href: 'https://www.youtube.com/channel/UC848rsbkuahzKYJMkHVkaiA',
     },
 ]
 
 const SocialIcons = () => (
     <div className="text-white text-3xl xl:text-4xl flex justify-between items-center flex-row lg:flex-row lg:my-2 mr-2 lg:mr-0">
-        {icons.map(({ id, Icon, href }) => (
-            <LinkToExternalSite key={id} href={href}>
-                <Icon className="ml-0 mr-2 lg:mr-0 lg:ml-4" />
+        {icons.map(({ Icon, href }) => (
+            <LinkToExternalSite key={href} href={href}>
+                <Icon className="mx-2 lg:mx-4" />
             </LinkToExternalSite>
         ))}
     </div>
