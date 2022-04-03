@@ -49,7 +49,7 @@ const ContactForm = ({ submitForm }: { submitForm: (formState: IContactFormDetai
         if (formIsValid !== newFormIsValid) {
             setFormIsValid(newFormIsValid);
         }
-    }, [formState]);
+    }, [company, email, formIsValid, formState, formStateHasChanged, message, name]);
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

@@ -18,7 +18,7 @@ const Header = () => {
             setScroll(x <= 70);
         })
         return () => unsubscribe()
-    }, [])
+    }, [scrollY])
 
     const fullClasses = 'xl:h-header-xl lg:h-header-lg h-header';
     const minimisedClasses = 'xl:h-header-xl-mini lg:h-header-lg-mini h-header-mini';

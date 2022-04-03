@@ -94,7 +94,7 @@ const ContactPage = () => {
             {showModal && <Modal title="Contact Form" closeModal={() => setShowModal(false)}>
                 {showCaptcha
                     ? <>
-                        <p className="pb-5">Thanks for contacting TheVECentre, we just need to make sure you're not a robot!</p>
+                        <p className="pb-5">Thanks for contacting TheVECentre, we just need to make sure you&apos;re not a robot!</p>
                         <Recaptcha onChange={sendEmail} className="py-10" />
                     </> : <>
                         {sending

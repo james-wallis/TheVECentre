@@ -9,53 +9,8 @@ import { getTourURLs } from '../lib/utils';
 
 import Tours from '../tours';
 
-async function shouldRedirect(): Promise<boolean> {
-    // const ua = (function() { return window.navigator.userAgent.toLowerCase(); })();
-    // const inUA = function(value: string) { return (ua.search(value.toLowerCase()) >= 0); };
-    // const mobile: boolean = inUA('android') || inUA('ios') || inUA('iphone') || inUA('ipod') || inUA('ipad');
-
-    // if (mobile) {
-    //     return true;
-    // } else if (navigator.getVRDisplays) {
-    //     try {
-    //         const displays: any = await navigator.getVRDisplays();
-    //         if (displays.length > 0)
-    //             return true;
-    //         else
-    //             return false;
-    //     } catch(err) {
-    //         return false;
-    //     }
-    // }
-    return false;
-}
-
-async function redirectIfMobile(router: NextRouter, url: string) {
-    const redirect: boolean = typeof window !== 'undefined' ? await shouldRedirect() : false;
-    if (redirect) {
-        router.push(url);
-    }
-}
-
 const Tour = ({ tour }: { tour: ITour }) => {
-    // If tour isn't given, show 404 page
-    if (!tour) {
-        return <>
-            <Head>
-                <meta name="robots" content="noindex" />
-            </Head>
-            <DefaultErrorPage statusCode={404} />
-        </>
-    }
-
     const router = useRouter();
-    const slug = router.query.slug;
-    const { title, description } = tour;
-    const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(slug as string[]);
-
-    useEffect(() => {
-        redirectIfMobile(router, url);
-    }, [router, url]);
 
     const windowSizeChanged = () => {
         typeof window !== 'undefined' && setIframeHeight(`${window.innerHeight}px`);
@@ -69,6 +24,20 @@ const Tour = ({ tour }: { tour: ITour }) => {
             window.removeEventListener('resize', windowSizeChanged)
         }
     }, [])
+
+    // If tour isn't given, show 404 page
+    if (!tour) {
+        return <>
+            <Head>
+                <meta name="robots" content="noindex" />
+            </Head>
+            <DefaultErrorPage statusCode={404} />
+        </>
+    }
+
+    const slug = router.query.slug;
+    const { title, description } = tour;
+    const { indexHtml: url, socialThumbnail, favicon, manifest, browserConfig, miscDir } = getTourURLs(slug as string[]);
 
     return (
         <div className="w-screen" style={{ height: iframeHeight }}>
