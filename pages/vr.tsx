@@ -6,7 +6,7 @@ import { allVecTours } from '../tours'
 const VrPage = () => {
     return (
         <div
-            className="flex flex-col mt-20 text-white text-center pb-20 md:pb-32"
+            className="flex flex-col pt-20 text-white text-center pb-20 md:pb-32"
         >
             <NextSeo
                 title="VR"
