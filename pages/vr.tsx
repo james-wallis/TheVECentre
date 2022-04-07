@@ -1,6 +1,5 @@
+import React from 'react'
 import { NextSeo } from 'next-seo'
-import Image from "next/image"
-import React, { useState } from 'react'
 import { getTourURLs } from '../lib/utils'
 import { allVecTours } from '../tours'
 
