@@ -18,6 +18,7 @@ interface IProps {
 const links: ILink[] = [
     { text: 'Home', href: '/' },
     { text: 'Spring', href: '/spring' },
+    { text: 'VR Links', href: '/vr' },
     // { text: 'About', href: '/about' },
     // { text: 'Contact', href: '/contact' },
 ]
@@ -79,6 +80,7 @@ const Navigation = ({ isOpen, closeMenu }: IProps) => {
                                 text-white uppercase font-semibold hover:text-mint transition-colors
                                 ${(href === "/" ? (asPath === "/" || asPath.startsWith("/home") || asPath.startsWith("/main")) : asPath.startsWith(href)) && activeClasses}
                             `}
+                            onClick={closeMenu}
                         >
                             {text}
                         </a>

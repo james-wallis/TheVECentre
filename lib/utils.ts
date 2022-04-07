@@ -3,22 +3,30 @@ import ITourUrls from '../interfaces/ITourUrls';
 const AWS_PREFIX='https://thevecentre.s3.eu-west-2.amazonaws.com';
 
 export function getTourURLs(tour: string[]): ITourUrls {
-    let urlPrefix: string = '';
 
     const name: string = tour && tour[0] ? tour[0].toLowerCase() : '';
     const pano: string | undefined = tour && tour[1] ? tour[1] : '';
 
+    let awsPath: string = '';
     switch (name) {
         case 'spring':
-            urlPrefix = `${AWS_PREFIX}/spring`;
+            awsPath = "spring";
+            break;
+        case 'oldmillhousegallery':
+            awsPath = "theoldmillhousegallery"
+            break;
+        case 'balc':
+            awsPath = "BALC";
             break;
         case 'home':
         case 'main':
         case 'centre':
         default:
-            urlPrefix = `${AWS_PREFIX}/vec2`;
+            awsPath = "vec2";
             break;
     }
+
+    const urlPrefix = `${AWS_PREFIX}/${awsPath}`;
 
     const indexHtml: string = pano ? `${urlPrefix}/index.htm#media-name=${pano}&skip-loading` : `${urlPrefix}/index.htm#skip-loading`;
     const socialThumbnail: string = `${urlPrefix}/socialThumbnail.jpg`;
