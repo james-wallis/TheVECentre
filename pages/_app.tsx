@@ -7,11 +7,14 @@ import { Hamburger } from '../components/NavigationIcons';
 import { useFullViewHeight } from '../hooks/useFullViewHeight';
 import tours from "../tours";
 
+const routesWithoutNav = ["/guestbooks"];
+
 function MyApp({ Component, pageProps, router: { asPath } }: AppProps) {
     const url: string = `https://thevecentre.com${asPath}`;
     const [open, setOpen] = useState(false);
     const [fullViewHeight] = useFullViewHeight();
     const setContainerHeight = asPath === "/" || tours.find(({ path }) => asPath.startsWith(`/${path}`));
+    const showNav = routesWithoutNav.includes(asPath);
     return <>
         <DefaultSeo
             titleTemplate='%s @ The VECentre'
@@ -32,12 +35,12 @@ function MyApp({ Component, pageProps, router: { asPath } }: AppProps) {
             }}
             canonical={url}
         />
-        <Hamburger onClick={() => setOpen(true)} />
+        {showNav && <Hamburger onClick={() => setOpen(true)} />}
         <div
-            className="h-screen flex flex-col"
+            className="h-screen flex flex-col font-default"
             style={setContainerHeight && { height: fullViewHeight }}
         >
-            <Navigation isOpen={open} closeMenu={() => setOpen(false)} />
+            {showNav && <Navigation isOpen={open} closeMenu={() => setOpen(false)} />}
             <Component {...pageProps} canonical={url} />
         </div>
     </>
