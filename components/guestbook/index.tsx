@@ -4,7 +4,6 @@ import { GuestBookVariant, IGuestBookEntry } from '../../interfaces/GuestBook';
 import FirstPage from './FirstPage';
 import DisplayPage from './DisplayPage';
 import FormPage from './FormPage';
-import { GoTriangleLeft, GoTriangleRight } from 'react-icons/go';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 import moment from 'moment';
 

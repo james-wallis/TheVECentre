@@ -5,7 +5,6 @@ const clientEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL as string;
 const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY as string;
 const spreadsheetId = process.env.SPREADSHEET_ID as string;
 const scopes = ['https://www.googleapis.com/auth/spreadsheets'];
-// const range = 'guestbook1';
 
 const authenticate = (): sheets_v4.Sheets => {
     const jwt = new google.auth.JWT(
