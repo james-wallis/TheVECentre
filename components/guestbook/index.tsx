@@ -49,7 +49,7 @@ const GuestBookPage = ({ range, variant, className }: IGuestBookProps) => {
     }
 
     const buttonClassNames = `
-        absolute text-2xl md:text-6xl boottom-4 md:bottom-8 flex flex-row items-center
+        absolute text-2xl md:text-6xl bottom-4 md:bottom-8 flex flex-row items-center
         ${variant === "artistjodi" ? "text-gray-600" : "text-gray-300"}
     `
 
