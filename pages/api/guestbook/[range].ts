@@ -1,7 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getGuestbookEntries, writeNewGuestbookEntry } from '../../lib/googleSheet';
+import { getGuestbookEntries, writeNewGuestbookEntry } from '../../../lib/googleSheet';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const { range } = req.query as { range: string }
+
     if (req.method && !['POST', 'GET'].includes(req.method)) {
         return res.status(404).send('Invalid method');
     }
@@ -12,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(500).send('Incorrect parameters');
         }
 
-        await writeNewGuestbookEntry({
+        await writeNewGuestbookEntry(range, {
             name: body.name,
             date: body.date,
             message: body.message,
@@ -23,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (req.method === 'GET') {
         // Handle GET
-        const entries = await getGuestbookEntries();
+        const entries = await getGuestbookEntries(range);
 
         if (!entries) {
             return res.status(500).send('No entries returned from Google Sheets');
