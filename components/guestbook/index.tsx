@@ -49,7 +49,7 @@ const GuestBookPage = ({ range, variant, className }: IGuestBookProps) => {
     }
 
     const buttonClassNames = `
-        absolute text-3xl md:text-6xl bottom-8 flex flex-row items-center
+        absolute text-2xl md:text-6xl boottom-4 md:bottom-8 flex flex-row items-center
         ${variant === "artistjodi" ? "text-gray-600" : "text-gray-300"}
     `
 
@@ -76,14 +76,14 @@ const GuestBookPage = ({ range, variant, className }: IGuestBookProps) => {
             )}
             {page > -2 && (
                 <button className={`${buttonClassNames} left-3 md:left-16 lg:right-20`} onClick={() => changePage(false)}>
-                    <MdArrowBack className="text-3xl" />
+                    <MdArrowBack className="text-2xl md:text-3xl" />
                     <span className="ml-2 text-xl pl-1 md:pr-2">Go back</span>
                 </button>
             )}
             {(page === (incrementAmount * -1) || page + incrementAmount < entries.length) && (
                 <button className={`${buttonClassNames} right-3 md:right-16 lg:right-20`} onClick={() => changePage(true)}>
                     <span className="mr-2 text-xl pl-1 md:pl-2">Next page</span>
-                    <MdArrowForward className="text-3xl" />
+                    <MdArrowForward className="text-2xl md:text-3xl" />
                 </button>
             )}
         </div>
