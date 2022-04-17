@@ -59,7 +59,7 @@ const FormPage = ({ range, variant, rightSide = false }: IProps) => {
                         className="
                             appearance-none block w-full text-gray-700 leading-tight
                             focus:outline-none focus:bg-white focus:border-gray-400
-                            p-3 pt-4 lg:p-5 bg-white my-3 lg:my-4 border border-gray-300 rounded-sm
+                            p-3 pt-4 lg:p-5 lg:pt-6 bg-white my-3 lg:my-4 border border-gray-300 rounded-sm
                         "
                         type="text"
                         placeholder="Name"

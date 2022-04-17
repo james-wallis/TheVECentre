@@ -6,6 +6,7 @@ import DisplayPage from './DisplayPage';
 import FormPage from './FormPage';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 import moment from 'moment';
+import useSWR from 'swr';
 
 interface IGuestBookProps {
   range: string
@@ -13,26 +14,18 @@ interface IGuestBookProps {
   className?: string
 }
 
+const fetcher = (url: string) => axios.get(url).then(res => res.data);
+const entriesInDateOrder = (entries: IGuestBookEntry[]) => entries.sort(({ date: date1 }, { date: date2 }) => moment(date1).isBefore(date2) ? 1 : -1);
+
 const GuestBookPage = ({ range, variant, className }: IGuestBookProps) => {
     const [page, setPage] = useState(-2);
-    const [entries, setEntries] = useState([] as IGuestBookEntry[]);
-    const [fetchErr, setFetchErr] = useState('');
 
-    useEffect(() => {
-       axios.get(`/api/guestbook/${range}`)
-            .then((res) => {
-                if (res.status !== 200 || !res.data || !res.data.entries) {
-                    setFetchErr('Error fetching guestbook entries. Try again later.');
-                    return;
-                }
-                const newEntries: IGuestBookEntry[] = res.data.entries as IGuestBookEntry[];
-                newEntries.sort(({ date: date1 }, { date: date2 }) => moment(date1).isBefore(date2) ? 1 : -1);
-                setEntries(newEntries);
-            })
-            .catch(() => {
-                setFetchErr('Error fetching guestbook entries. Try again later.');
-            })
-    }, [range]);
+    const { data, error: fetchErr } = useSWR(`/api/guestbook/${range}`, fetcher);
+    if(fetchErr) {
+        console.error("Error fetching guestbook: ", fetchErr);
+    }
+
+    const entries = data?.entries ? entriesInDateOrder(data.entries) : [];
 
     const resetPage = () => {
         if (process.browser) {
@@ -55,8 +48,6 @@ const GuestBookPage = ({ range, variant, className }: IGuestBookProps) => {
         }
     }
 
-    console.log(entries, page);
-
     const buttonClassNames = `
         absolute text-3xl md:text-6xl bottom-8 flex flex-row items-center
         ${variant === "artistjodi" ? "text-gray-600" : "text-gray-300"}
@@ -73,7 +64,7 @@ const GuestBookPage = ({ range, variant, className }: IGuestBookProps) => {
                 <>
                     {entries.length === 0 || fetchErr ? (
                         <div className="h-full w-1/2 flex flex-col items-center justify-center text-center">
-                            <p className="w-2/3 text-2xl">{fetchErr ? fetchErr : 'loading guestbook...'}</p>
+                            <p className="w-2/3 text-2xl">{fetchErr ? "Error fetching guestbook entries. Try again later." : 'loading guestbook...'}</p>
                         </div>
                     ) : (
                         <>
@@ -84,13 +75,13 @@ const GuestBookPage = ({ range, variant, className }: IGuestBookProps) => {
                 </>
             )}
             {page > -2 && (
-                <button className={`${buttonClassNames} left-3 md:left-14`} onClick={() => changePage(false)}>
+                <button className={`${buttonClassNames} left-3 md:left-16 lg:right-20`} onClick={() => changePage(false)}>
                     <MdArrowBack className="text-3xl" />
                     <span className="ml-2 text-xl pl-1 md:pr-2">Go back</span>
                 </button>
             )}
             {(page === (incrementAmount * -1) || page + incrementAmount < entries.length) && (
-                <button className={`${buttonClassNames} right-3 md:right-14`} onClick={() => changePage(true)}>
+                <button className={`${buttonClassNames} right-3 md:right-16 lg:right-20`} onClick={() => changePage(true)}>
                     <span className="mr-2 text-xl pl-1 md:pl-2">Next page</span>
                     <MdArrowForward className="text-3xl" />
                 </button>
