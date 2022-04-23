@@ -7,14 +7,14 @@ import { Hamburger } from '../components/NavigationIcons';
 import { useFullViewHeight } from '../hooks/useFullViewHeight';
 import tours from "../tours";
 
-const routesWithoutNav = ["/guestbooks"];
+const routesWithoutNav = ["/guestbooks/thevecentre", "/guestbooks/artistjodi"];
 
 function MyApp({ Component, pageProps, router: { asPath } }: AppProps) {
     const url: string = `https://thevecentre.com${asPath}`;
     const [open, setOpen] = useState(false);
     const [fullViewHeight] = useFullViewHeight();
     const setContainerHeight = asPath === "/" || tours.find(({ path }) => asPath.startsWith(`/${path}`));
-    const showNav = routesWithoutNav.includes(asPath);
+    const showNav = !routesWithoutNav.includes(asPath);
     return <>
         <DefaultSeo
             titleTemplate='%s @ The VECentre'
