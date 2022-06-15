@@ -22,7 +22,7 @@ export function getTourURLs(tour: string[]): ITourUrls {
         case 'main':
         case 'centre':
         default:
-            awsPath = "vec2";
+            awsPath = "VECjune";
             break;
     }
 
