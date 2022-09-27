@@ -18,6 +18,9 @@ export function getTourURLs(tour: string[]): ITourUrls {
         case 'balc':
             awsPath = "BALC";
             break;
+        case 'summer':
+            awsPath = "summer"
+            break;
         case 'home':
         case 'main':
         case 'centre':
