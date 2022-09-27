@@ -21,7 +21,10 @@ const VrPage = () => {
                 Direct links to tours without the navigation bar. For the best VR experience.
             </p>
             <div className="flex flex-row justify-center items-start lg:px-24 xl:px-32 2xl:px-48 flex-wrap mt-10">
-                {allVecTours.map(({ title, path }) => {
+                {allVecTours.map(({ title, path, hidden }) => {
+                    if(hidden) {
+                        return <></>
+                    }
                     const { indexHtml, socialThumbnail } = getTourURLs([path]);
                     return (
                         <div

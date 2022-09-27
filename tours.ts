@@ -14,6 +14,7 @@ const activeTours = [
     {
         title: 'Summer',
         description: 'The VECentre brings you the Summer exhibition!',
+        hidden: true,
         path: 'summer',
     }
 ]
