@@ -97,7 +97,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params?.slug as string[];
     // Default to main tour when a slug isn't given (home page)
-    const tourPath = slug && slug.length > 0 ? slug[0] : "main";
+    const tourPath = slug && slug.length > 0 ? slug[0].toLowerCase() : "main";
     const tour = Tours.find((tour) => tour.path === tourPath) || false;
     return {
         props: { tour },
