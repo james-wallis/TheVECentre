@@ -38,4 +38,6 @@ export interface ITour {
     title: string,
     description: string
     path: string
+    hidden?: boolean
+    year?: string
 }
