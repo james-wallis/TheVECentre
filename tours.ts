@@ -1,26 +1,27 @@
 import { ITour } from './interfaces';
 
-const activeTours = [
+const activeTours: ITour[] = [
     {
         title: 'The VECentre',
         description: 'The immersive 3D exhibition brought to you by TheVECentre.',
         path: 'main',
     },
     {
-        title: 'Spring',
-        description: 'The VECentre brings you the Spring exhibition!',
-        path: 'spring',
-    },
-    {
         title: 'Summer',
+        year: "2022",
         description: 'The VECentre brings you the Summer exhibition!',
-        hidden: true,
         path: 'summer',
     }
 ]
 
-export const allVecTours = [
+export const allVecTours: ITour[] = [
     ...activeTours,
+    {
+        title: 'Spring',
+        year: "2022",
+        description: 'The VECentre brings you the Spring exhibition!',
+        path: 'spring',
+    },
     {
         title: 'The Old Millhouse Gallery',
         description: 'The Old Millhouse Gallery',

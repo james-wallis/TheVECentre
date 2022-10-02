@@ -21,7 +21,7 @@ const VrPage = () => {
                 Direct links to tours without the navigation bar. For the best VR experience.
             </p>
             <div className="flex flex-row justify-center items-start lg:px-24 xl:px-32 2xl:px-48 flex-wrap mt-10">
-                {allVecTours.map(({ title, path, hidden }) => {
+                {allVecTours.map(({ title, path, hidden, year }) => {
                     if(hidden) {
                         return <></>
                     }
@@ -38,7 +38,9 @@ const VrPage = () => {
                             >
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src={socialThumbnail} alt={title} width="100%" />
-                                <p className='text-2xl uppercase font-bold mt-5'>{title}</p>
+                                <p className='text-2xl uppercase font-bold mt-5'>
+                                    {year ? `${title} ${year}` : title}
+                                </p>
                             </a>
                         </div>
                     )
