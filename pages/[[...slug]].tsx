@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { ITour } from '../interfaces';
 import { getTourURLs } from '../lib/utils';
 
-import Tours from '../tours';
+import { tours } from '../tours';
 
 const Tour = ({ tour }: { tour: ITour }) => {
     const router = useRouter();
@@ -74,7 +74,7 @@ const Tour = ({ tour }: { tour: ITour }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = Tours.map((tour: ITour) => ({
+    const paths = tours.map((tour: ITour) => ({
         params: {
             slug: [tour.path],
         }
@@ -98,7 +98,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params?.slug as string[];
     // Default to main tour when a slug isn't given (home page)
     const tourPath = slug && slug.length > 0 ? slug[0].toLowerCase() : "main";
-    const tour = Tours.find((tour) => tour.path === tourPath) || false;
+    const tour = tours.find((tour) => tour.path === tourPath) || false;
     return {
         props: { tour },
         // revalidate: 1,

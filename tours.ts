@@ -25,6 +25,7 @@ const activeToursNotOnNavigation: ITour[] = [
 
 export const allVecTours: ITour[] = [
     ...activeTours,
+    ...activeToursNotOnNavigation,
     {
         title: 'The Old Millhouse Gallery',
         description: 'The Old Millhouse Gallery',
@@ -35,10 +36,9 @@ export const allVecTours: ITour[] = [
         description: 'The Bored Ape Ladies Club!',
         path: 'balc',
     },
-    ...activeToursNotOnNavigation,
 ]
 
-const tours: ITour[] = [
+export const tours: ITour[] = [
     // Some links in the tour are incorrect so display the same tour for main and home
     {
         title: 'The VECentre',
@@ -48,5 +48,3 @@ const tours: ITour[] = [
     ...activeTours,
     ...activeToursNotOnNavigation,
 ];
-
-export default tours;
