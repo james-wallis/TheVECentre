@@ -7,13 +7,6 @@ const activeTours: ITour[] = [
         path: 'main',
     },
     {
-        title: 'Spring',
-        year: '2022',
-        description: 'The VECentre brings you the Spring exhibition!',
-        path: 'spring',
-        hidden: true
-    },
-    {
         title: 'Summer',
         year: '2022',
         description: 'The VECentre brings you the Summer exhibition!',
@@ -21,8 +14,18 @@ const activeTours: ITour[] = [
     }
 ]
 
+const activeToursNotOnNavigation: ITour[] = [
+    {
+        title: 'Spring',
+        year: '2022',
+        description: 'The VECentre brings you the Spring exhibition!',
+        path: 'spring',
+    },
+]
+
 export const allVecTours: ITour[] = [
     ...activeTours,
+    ...activeToursNotOnNavigation,
     {
         title: 'The Old Millhouse Gallery',
         description: 'The Old Millhouse Gallery',
@@ -32,10 +35,10 @@ export const allVecTours: ITour[] = [
         title: 'BALC',
         description: 'The Bored Ape Ladies Club!',
         path: 'balc',
-    }
+    },
 ]
 
-const tours: ITour[] = [
+export const tours: ITour[] = [
     // Some links in the tour are incorrect so display the same tour for main and home
     {
         title: 'The VECentre',
@@ -43,6 +46,5 @@ const tours: ITour[] = [
         path: 'home',
     },
     ...activeTours,
+    ...activeToursNotOnNavigation,
 ];
-
-export default tours;

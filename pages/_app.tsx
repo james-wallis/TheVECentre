@@ -5,7 +5,7 @@ import '../styles/index.css'
 import Navigation from '../components/Navigation';
 import { Hamburger } from '../components/NavigationIcons';
 import { useFullViewHeight } from '../hooks/useFullViewHeight';
-import tours from "../tours";
+import { tours } from "../tours";
 
 const routesWithoutNav = ["/guestbooks/thevecentre", "/guestbooks/artistjodi"];
 
