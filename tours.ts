@@ -7,18 +7,20 @@ const activeTours: ITour[] = [
         path: 'main',
     },
     {
-        title: 'Spring',
-        year: '2022',
-        description: 'The VECentre brings you the Spring exhibition!',
-        path: 'spring',
-        hidden: true
-    },
-    {
         title: 'Summer',
         year: '2022',
         description: 'The VECentre brings you the Summer exhibition!',
         path: 'summer',
     }
+]
+
+const activeToursNotOnNavigation: ITour[] = [
+    {
+        title: 'Spring',
+        year: '2022',
+        description: 'The VECentre brings you the Spring exhibition!',
+        path: 'spring',
+    },
 ]
 
 export const allVecTours: ITour[] = [
@@ -32,7 +34,8 @@ export const allVecTours: ITour[] = [
         title: 'BALC',
         description: 'The Bored Ape Ladies Club!',
         path: 'balc',
-    }
+    },
+    ...activeToursNotOnNavigation,
 ]
 
 const tours: ITour[] = [
@@ -43,6 +46,7 @@ const tours: ITour[] = [
         path: 'home',
     },
     ...activeTours,
+    ...activeToursNotOnNavigation,
 ];
 
 export default tours;
