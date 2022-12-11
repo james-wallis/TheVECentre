@@ -17,7 +17,7 @@ interface IProps {
 
 const links: ILink[] = [
     { text: 'Home', href: '/' },
-    { text: 'Summer', href: '/summer' },
+    { text: 'Winter', href: '/winter' },
     { text: 'VR Links', href: '/vr' },
     // { text: 'About', href: '/about' },
     // { text: 'Contact', href: '/contact' },

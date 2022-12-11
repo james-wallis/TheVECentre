@@ -7,14 +7,20 @@ const activeTours: ITour[] = [
         path: 'main',
     },
     {
-        title: 'Summer',
+        title: 'Winter',
         year: '2022',
-        description: 'The VECentre brings you the Summer exhibition!',
-        path: 'summer',
+        description: 'The VECentre brings you the Winter exhibition!',
+        path: 'winter',
     }
 ]
 
 const activeToursNotOnNavigation: ITour[] = [
+    {
+        title: 'Summer',
+        year: '2022',
+        description: 'The VECentre brings you the Summer exhibition!',
+        path: 'summer',
+    },
     {
         title: 'Spring',
         year: '2022',
